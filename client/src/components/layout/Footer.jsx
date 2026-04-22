@@ -16,40 +16,6 @@ export default function Footer({ lang = "en" }) {
           International Relations • Development • Social Impact • Consulting
         </p>
 
-        {/* CONTACT LINKS */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-
-          {/* EMAIL */}
-          <a
-            href="mailto:julienzigabe10@gmail.com"
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-blue-200 bg-blue-50/40 text-blue-700 hover:bg-blue-100/60 transition"
-          >
-            {/* <Mail size={18} /> */}
-            Email
-          </a>
-
-          {/* WHATSAPP */}
-          <a
-            href="https://wa.me/254119526770"
-            target="_blank"
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-green-200 bg-green-50/40 text-green-700 hover:bg-green-100/60 transition"
-          >
-            {/* <MessageCircle size={18} /> */}
-            WhatsApp
-          </a>
-
-          {/* LINKEDIN */}
-          <a
-            href="https://www.linkedin.com/in/julienz24/"
-            target="_blank"
-            className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 transition"
-          >
-            {/* <Linkedin size={18} /> */}
-            LinkedIn
-          </a>
-
-        </div>
-
         {/* BACK TO TOP */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
