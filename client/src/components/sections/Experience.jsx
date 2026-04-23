@@ -5,6 +5,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Experience({ lang }) {
   const experiences = [
@@ -70,6 +71,45 @@ export default function Experience({ lang }) {
     },
   ];
 
+  const containerRef = useRef(null);
+  const [visibleItems, setVisibleItems] = useState([]);
+  const [lineHeight, setLineHeight] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const items = document.querySelectorAll(".exp-item");
+      const newVisible = [];
+
+      items.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight * 0.85) {
+          newVisible.push(index);
+        }
+      });
+
+      setVisibleItems(newVisible);
+
+      // LINE PROGRESS
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const totalHeight = containerRef.current.scrollHeight;
+
+        let progress =
+          (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
+
+        progress = Math.max(0, Math.min(1, progress));
+
+        setLineHeight(progress * totalHeight);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="experience"
@@ -83,39 +123,59 @@ export default function Experience({ lang }) {
         </h2>
 
         <p className="text-center text-slate-500 mt-3 text-sm max-w-xl mx-auto">
-          International development, training, consulting & leadership roles across UN agencies and NGOs
+          {lang === "fr"
+            ? "Expérience en développement international, formation et leadership"
+            : "International development, training, consulting & leadership roles"}
         </p>
 
         {/* TIMELINE */}
-        <div className="mt-16 relative">
+        <div ref={containerRef} className="mt-16 relative">
 
-          {/* LINE */}
-          <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-linear-to-b from-blue-200 via-slate-200 to-orange-200 opacity-60" />
+          {/* ANIMATED LINE */}
+          <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-slate-200 opacity-30" />
+
+          <div
+            className="absolute left-4 md:left-1/2 w-0.5 bg-linear-to-b from-blue-400/30 via-slate-400/40 to-orange-400/30 transition-all duration-300"
+            style={{ height: lineHeight }}
+          />
 
           {experiences.map((exp, i) => {
             const Icon = exp.icon;
+            const isVisible = visibleItems.includes(i);
 
             return (
               <div
                 key={i}
-                className={`mb-12 flex items-start gap-6 ${
+                className={`exp-item mb-12 flex items-start gap-6 ${
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
 
                 {/* ICON */}
-                <div className="relative z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white shadow-sm border border-slate-200">
-
+                <div
+                  className={`relative z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white shadow-sm border border-slate-200 transition-all duration-500
+                  ${
+                    isVisible
+                      ? "opacity-100 scale-100 translate-y-0"
+                      : "opacity-0 scale-50 translate-y-5"
+                  }`}
+                >
                   <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
                     <Icon size={16} className="text-blue-600" />
                   </div>
-
                 </div>
 
                 {/* CARD */}
-                <div className="flex-1 rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div
+                  className={`flex-1 rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white transition-all duration-700
+                  ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
+                  }`}
+                >
 
-                  {/* TITLE SECTION */}
+                  {/* TITLE */}
                   <div className="bg-white px-5 py-4">
                     <p className="text-xs text-slate-400">{exp.date}</p>
 
@@ -124,21 +184,17 @@ export default function Experience({ lang }) {
                     </h3>
                   </div>
 
-                  {/* DESCRIPTION SECTION */}
+                  {/* DESCRIPTION */}
                   <div className="bg-slate-50 px-5 py-4 border-t border-slate-100">
-                    <p className="text-sm text-slate-600">
-                      {exp.org}
-                    </p>
+                    <p className="text-sm text-slate-600">{exp.org}</p>
                   </div>
 
                 </div>
-
               </div>
             );
           })}
 
         </div>
-
       </div>
     </section>
   );

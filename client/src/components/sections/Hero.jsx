@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 export default function Hero({ lang }) {
   return (
-    <section className="relative w-screen min-h-[90vh] flex items-center justify-around p-2.5 text-center overflow-hidden bg-[#fafafa] animate-[fadeIn_1s_ease-out]">
+    <section className="relative w-screen min-h-[90vh] flex items-center justify-around p-2.5 text-center overflow-hidden bg-[#fafafa] animate-[fadeIn_1s_ease-out] ">
 
       {/* CONTENT WRAPPER */}
       <div className="relative w-full max-w-6xl min-h-[85vh] px-4 grid md:grid-cols-2 gap-10 items-center animate-[slideUp_1s_ease-out]">
@@ -51,7 +51,7 @@ export default function Hero({ lang }) {
           <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
 
             <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-5 text-sm">
-              {lang === "fr" ? "Me contacter" : "Contact me"}
+              <a href="#contact">{lang === "fr" ? "Me contacter" : "Contact me"}</a>
             </Button>
 
             <Button
@@ -60,7 +60,7 @@ export default function Hero({ lang }) {
               className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-5 text-sm"
             >
               <a
-                href="/cv/JULIEN-ZIGABE-CV.pdf"
+                href="/JULIEN ZIG CV.pdf"
                 download="Julien-Zigabe-CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"

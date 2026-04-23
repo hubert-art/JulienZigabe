@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: "#2563eb",
         accent: "#f97316",
+        soft: "#f8fafc",
       },
     },
   },

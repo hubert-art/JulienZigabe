@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
   Brain,
   Users,
@@ -62,8 +63,40 @@ export default function Skills({ lang }) {
     },
   ];
 
+  const refs = useRef([]);
+  const [visible, setVisible] = useState([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setVisible((prev) => {
+          let updated = [...prev];
+
+          entries.forEach((entry) => {
+            const index = refs.current.indexOf(entry.target);
+
+            if (entry.isIntersecting) {
+              if (!updated.includes(index)) {
+                updated.push(index);
+              }
+            } else {
+              updated = updated.filter((i) => i !== index);
+            }
+          });
+
+          return updated;
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    refs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="py-16 px-4 bg-white">
+    <section id="skills" className="py-20 px-6 bg-white">
 
       <div className="max-w-5xl mx-auto">
 
@@ -80,36 +113,58 @@ export default function Skills({ lang }) {
         </p>
 
         {/* GRID */}
-        <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-          {skills.map((skill, i) => (
-            <div
-              key={i}
-              className="group p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-white hover:shadow-md transition"
-            >
+          {skills.map((skill, i) => {
+            const isVisible = visible.includes(i);
 
-              {/* ICON */}
-              <div className="w-9 h-9 flex items-center justify-center rounded-md bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition">
-                {skill.icon}
+            return (
+              <div
+                key={i}
+                ref={(el) => (refs.current[i] = el)}
+                className={`group p-5 rounded-2xl border transition-all duration-500 ease-out
+                  
+                  bg-slate-50 border-slate-200
+                  
+                  hover:bg-white hover:shadow-md hover:scale-[1.04] hover:border-blue-200
+
+                  ${isVisible
+                    ? "opacity-100 translate-y-0 scale-100 blur-0"
+                    : "opacity-0 translate-y-12 scale-75 blur-sm"}
+                `}
+                style={{
+                  transitionDelay: `${i * 120}ms`,
+                }}
+              >
+
+                {/* ICON */}
+                <div
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg mb-3 transition-all duration-300
+                  
+                  bg-blue-100 text-blue-600
+                  group-hover:bg-blue-600 group-hover:text-white
+                  `}
+                >
+                  {skill.icon}
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-sm font-semibold text-slate-800">
+                  {skill.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="mt-1 text-xs text-slate-600 leading-relaxed">
+                  {skill.desc}
+                </p>
+
               </div>
-
-              {/* TITLE */}
-              <h3 className="mt-3 text-sm font-semibold text-slate-800">
-                {skill.title}
-              </h3>
-
-              {/* DESCRIPTION */}
-              <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-                {skill.desc}
-              </p>
-
-            </div>
-          ))}
+            );
+          })}
 
         </div>
 
       </div>
-
     </section>
   );
 }
