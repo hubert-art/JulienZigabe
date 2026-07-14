@@ -1,253 +1,167 @@
-import { useEffect, useRef, useState } from "react";
 import {
-  User,
   HeartHandshake,
-  Award,
-  GraduationCap,
   Languages,
-  MapPin,
   Mail,
-  Link,
+  MapPin,
+  Phone,
+  ShieldCheck,
   Sparkles,
+  User,
 } from "lucide-react";
 
 export default function About({ lang }) {
-  const t = {
+  const L = {
     fr: {
+      label: "Profil professionnel",
       title: "À propos",
-      intro1:
-        "Étudiant en relations internationales à USIU-Africa, passionné par le développement communautaire, le leadership et l’innovation sociale. Mon objectif est de contribuer à des solutions durables ayant un impact global.",
-      intro2:
-        "Expérience avec plusieurs organisations internationales, ONG et programmes d’innovation en Afrique.",
-      vision:
-        "Profil construit autour de l’impact social & du développement international",
-
-      careerTitle: "Objectif de carrière",
-      career:
-        "Je suis fortement motivé à poursuivre des opportunités exigeantes qui me permettent d’exploiter mes compétences organisationnelles et de contribuer au changement social.",
-
-      contact: "Contact",
-      interests: "Intérêts",
-      profile: "Profil personnel",
-      education: "Éducation",
-      certificates: "Certificats",
-      languages: "Langues",
-
-      contactInfo: {
-        birth: "Date de naissance : 11 avril 2001",
-        nationality: "Nationalité : Congolaise",
-        status: "Statut marital : Célibataire",
-        hobbies: "Centres d’intérêt : écriture, recherche, création vidéo",
-      },
-
-      interestsText:
-        "Développement des affaires • Développement communautaire • Innovation sociale • Entrepreneuriat",
-
-      educationText:
-        "United States International University Africa; Licence en relations internationales (en cours)",
-
-      certificatesText:
-        "SIYB ILO • Leadership & entrepreneuriat • Communication non violente • Coaching de vie",
-
-      languagesText:
-        "Anglais • Français • Swahili • Luganda • Kinyarwanda",
+      intro:
+        "Julien est un étudiant en relations internationales et jeune professionnel orienté impact.   Mon parcours relie diplomatie, développement communautaire, entrepreneuriat social et formation pratique pour accompagner des jeunes, des réfugiés et des entrepreneurs émergents.",
+      objectiveTitle: "Objectif de carrière",
+      objective:
+        "Contribuer à des programmes internationaux exigeants où l'analyse, la facilitation et le leadership servent des solutions durables pour les communautés.",
+      focusTitle: "Axes d'impact",
+      focus: [
+        "Développement communautaire et inclusion des jeunes",
+        "Renforcement des capacités entrepreneuriales",
+        "Recherche, communication et innovation sociale",
+      ],
+      contact: "Contact direct",
+      details: [
+        ["Nationalité", "Congolaise"],
+        ["Statut", "Étudiant en relations internationales"],
+        ["Basé à", "Nairobi, Kenya"],
+      ],
+      languages: "Anglais • Français • Swahili • Lingala",
+      values: ["Leadership", "Service", "Diplomatie", "Innovation"],
     },
-
     en: {
+      label: "Professional Profile",
       title: "About",
-      intro1:
-        "International Relations student at USIU-Africa, passionate about community development, leadership, and social innovation. My goal is to contribute to sustainable solutions with global impact.",
-      intro2:
-        "Experienced working with international organizations, NGOs, and innovation programs across Africa.",
-      vision:
-        "Profile built around social impact & international development",
-
-      careerTitle: "Career Objective",
-      career:
-        "I am highly motivated to pursue challenging opportunities that allow me to leverage my organizational skills and contribute to societal change.",
-
-      contact: "Contact",
-      interests: "Interests",
-      profile: "Personal Profile",
-      education: "Education",
-      certificates: "Certificates",
-      languages: "Languages",
-
-      contactInfo: {
-        birth: "Date of birth: 11 April 2001",
-        nationality: "Nationality: Congolese",
-        status: "Marital status: Single",
-        hobbies: "Interests: writing, research, video creation",
-      },
-
-      interestsText:
-        "Business Development • Community Development • Social Innovation • Entrepreneurship",
-
-      educationText:
-        "United States International University Africa; Bachelor of International Relations (In Progress)",
-
-      certificatesText:
-        "SIYB ILO • Leadership & Entrepreneurship • Non-Violent Communication • Life Coaching",
-
-      languagesText:
-        "English • French • Swahili • Luganda • Kinyarwanda",
+      intro:
+        "Julien is an International Relations student and impact-driven young professional. My work connects diplomacy, community development, social entrepreneurship, and practical training to support youth, refugees, and emerging entrepreneurs.",
+      objectiveTitle: "Career Objective",
+      objective:
+        "To contribute to demanding international programs where analysis, facilitation, and leadership help deliver sustainable solutions for communities.",
+      focusTitle: "Impact Focus",
+      focus: [
+        "Community development and youth inclusion",
+        "Entrepreneurial capacity strengthening",
+        "Research, communication, and social innovation",
+      ],
+      contact: "Direct contact",
+      details: [
+        ["Nationality", "Congolese"],
+        ["Status", "International Relations student"],
+        ["Based in", "Nairobi, Kenya"],
+      ],
+      languages: "English • French • Swahili • Lingala",
+      values: ["Leadership", "Service", "Diplomacy", "Innovation"],
     },
-  };
-
-  const L = t[lang];
-
-  const itemsRef = useRef([]);
-  const [visible, setVisible] = useState([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setVisible((prev) => {
-          let updated = [...prev];
-
-          entries.forEach((entry) => {
-            const index = itemsRef.current.indexOf(entry.target);
-            if (entry.isIntersecting) {
-              if (!updated.includes(index)) updated.push(index);
-            } else {
-              updated = updated.filter((i) => i !== index);
-            }
-          });
-
-          return updated;
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    itemsRef.current.forEach((el) => el && observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const block = (index) => {
-    const isVisible = visible.includes(index);
-    const fromLeft = index % 2 === 0;
-
-    return `
-      transition-all duration-700 ease-out
-      ${isVisible ? "opacity-100 translate-x-0" : "opacity-0"}
-      ${!isVisible && (fromLeft ? "-translate-x-12" : "translate-x-12")}
-    `;
-  };
+  }[lang];
 
   return (
-    <section id="about" className="py-20 px-6 bg-white">
-
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-start">
-
-        {/* LEFT */}
-        <div ref={(el) => (itemsRef.current[0] = el)} className={block(0)}>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-            {L.title}
-          </h2>
-
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            {L.intro1}
+    <section id="about" className="bg-white px-5 py-24 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="reveal">
+          <p className="section-kicker">
+            <User size={16} />
+            {L.label}
           </p>
+          <h2 className="section-title mt-4">{L.title}</h2>
+          <p className="mt-6 text-lg leading-8 text-slate-600">{L.intro}</p>
 
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            {L.intro2}
-          </p>
+          <div className="mt-8 rounded-lg border border-blue-100 bg-blue-50/60 p-6">
+            <div className="flex items-center gap-3 text-blue-700">
+              <ShieldCheck size={20} />
+              <h3 className="font-bold text-slate-950">{L.objectiveTitle}</h3>
+            </div>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{L.objective}</p>
+          </div>
 
-          <div className="mt-10 flex items-center gap-3 text-slate-500 text-sm">
-            <Sparkles size={16} className="text-blue-500" />
-            <span>{L.vision}</span>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {L.values.map((value) => (
+              <span
+                key={value}
+                className="rounded-lg bg-slate-950 px-3 py-2 text-xs font-semibold text-white"
+              >
+                {value}
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="space-y-6">
-
-          {/* CAREER */}
-          <div ref={(el) => (itemsRef.current[1] = el)} className={`p-6 rounded-2xl bg-slate-50 ${block(1)}`}>
-            <div className="flex items-center gap-3 mb-3 text-blue-600">
-              <User size={18} />
-              <h3 className="font-semibold text-slate-900">{L.careerTitle}</h3>
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="premium-card sm:col-span-2">
+            <div className="flex items-center gap-3 text-orange-500">
+              <Sparkles size={20} />
+              <h3 className="text-lg font-bold text-slate-950">{L.focusTitle}</h3>
             </div>
-            <p className="text-sm text-slate-600">{L.career}</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {L.focus.map((item, index) => (
+                <div key={item} className="rounded-lg bg-slate-50 p-4">
+                  <span className="text-xs font-black text-blue-600">
+                    0{index + 1}
+                  </span>
+                  <p className="mt-3 text-sm font-semibold leading-6 text-slate-700">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* CONTACT */}
-          <div ref={(el) => (itemsRef.current[2] = el)} className={`p-6 rounded-2xl bg-white ${block(2)}`}>
-            <div className="flex items-center gap-3 mb-3 text-slate-700">
-              <Mail size={18} className="text-orange-500" />
-              <h3 className="font-semibold text-slate-900">{L.contact}</h3>
+          <div className="premium-card">
+            <div className="flex items-center gap-3 text-blue-600">
+              <Mail size={19} />
+              <h3 className="font-bold text-slate-950">{L.contact}</h3>
             </div>
-
-            <div className="text-sm text-slate-600 space-y-1">
-              <p>julienzigabe10@gmail.com</p>
-              <p>+254 119 526 770</p>
-              <p>+256 760 325 737</p>
-
+            <div className="mt-5 space-y-3 text-sm text-slate-600">
+              <a className="block hover:text-blue-600" href="mailto:julienzigabe10@gmail.com">
+                julienzigabe10@gmail.com
+              </a>
               <p className="flex items-center gap-2">
-                <Link size={14} className="text-blue-500" />
-                linkedin.com/in/julienz24
+                <Phone size={15} className="text-orange-500" />
+                +254 119 526 770
               </p>
-
               <p className="flex items-center gap-2">
-                <MapPin size={14} className="text-green-500" />
+                <Phone size={15} className="text-orange-500" />
+                +256 760 325 737
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin size={15} className="text-green-600" />
                 Nairobi, Kenya
               </p>
             </div>
           </div>
 
-          {/* INTERESTS */}
-          <div ref={(el) => (itemsRef.current[3] = el)} className={`p-6 rounded-2xl bg-slate-50 ${block(3)}`}>
-            <div className="flex items-center gap-3 mb-3 text-green-600">
-              <HeartHandshake size={18} />
-              <h3 className="font-semibold text-slate-900">{L.interests}</h3>
+          <div className="premium-card">
+            <div className="flex items-center gap-3 text-green-600">
+              <Languages size={19} />
+              <h3 className="font-bold text-slate-950">
+                {lang === "fr" ? "Langues" : "Languages"}
+              </h3>
             </div>
-            <p className="text-sm text-slate-600">{L.interestsText}</p>
+            <p className="mt-5 text-sm leading-7 text-slate-600">{L.languages}</p>
           </div>
 
-          {/* PROFILE */}
-          <div ref={(el) => (itemsRef.current[4] = el)} className={`p-6 rounded-2xl bg-white ${block(4)}`}>
-            <div className="flex items-center gap-3 mb-3 text-indigo-600">
-              <User size={18} />
-              <h3 className="font-semibold text-slate-900">{L.profile}</h3>
+          <div className="premium-card sm:col-span-2">
+            <div className="flex items-center gap-3 text-orange-500">
+              <HeartHandshake size={20} />
+              <h3 className="font-bold text-slate-950">
+                {lang === "fr" ? "Informations clés" : "Key Details"}
+              </h3>
             </div>
-
-            <div className="text-sm text-slate-600 space-y-1">
-              <p>{L.contactInfo.birth}</p>
-              <p>{L.contactInfo.nationality}</p>
-              <p>{L.contactInfo.status}</p>
-              <p>{L.contactInfo.hobbies}</p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {L.details.map(([label, value]) => (
+                <div key={label} className="rounded-lg border border-slate-100 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    {label}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-slate-800">{value}</p>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* EDUCATION */}
-          <div ref={(el) => (itemsRef.current[5] = el)} className={`p-6 rounded-2xl bg-slate-50 ${block(5)}`}>
-            <div className="flex items-center gap-3 mb-3 text-blue-600">
-              <GraduationCap size={18} />
-              <h3 className="font-semibold text-slate-900">{L.education}</h3>
-            </div>
-            <p className="text-sm text-slate-600">{L.educationText}</p>
-          </div>
-
-          {/* CERTIFICATES */}
-          <div ref={(el) => (itemsRef.current[6] = el)} className={`p-6 rounded-2xl bg-white ${block(6)}`}>
-            <div className="flex items-center gap-3 mb-3 text-orange-500">
-              <Award size={18} />
-              <h3 className="font-semibold text-slate-900">{L.certificates}</h3>
-            </div>
-            <p className="text-sm text-slate-600">{L.certificatesText}</p>
-          </div>
-
-          {/* LANGUAGES */}
-          <div ref={(el) => (itemsRef.current[7] = el)} className={`p-6 rounded-2xl bg-slate-50 ${block(7)}`}>
-            <div className="flex items-center gap-3 mb-3 text-green-600">
-              <Languages size={18} />
-              <h3 className="font-semibold text-slate-900">{L.languages}</h3>
-            </div>
-            <p className="text-sm text-slate-600">{L.languagesText}</p>
-          </div>
-
         </div>
       </div>
     </section>

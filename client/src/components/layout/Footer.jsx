@@ -1,36 +1,61 @@
+import { ArrowUp, ExternalLink, Mail } from "lucide-react";
 
 export default function Footer({ lang = "en" }) {
   const year = new Date().getFullYear();
+  const L = {
+    fr: {
+      title: "Julien Zigabe",
+      subtitle: "Relations internationales • Développement • Impact social • Leadership",
+      top: "Retour en haut",
+      rights: "Tous droits réservés.",
+    },
+    en: {
+      title: "Julien Zigabe",
+      subtitle: "International Relations • Development • Social Impact • Leadership",
+      top: "Back to top",
+      rights: "All rights reserved.",
+    },
+  }[lang];
 
   return (
-    <footer className="relative bg-white border-t border-slate-100 px-6 pt-16">
+    <footer className="bg-slate-950 px-5 pt-16 text-white lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 pb-12 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 className="text-2xl font-black tracking-tight">{L.title}</h2>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">{L.subtitle}</p>
+        </div>
 
-      <div className="max-w-5xl mx-auto text-center space-y-10 pb-20">
-
-        {/* TITLE */}
-        <h2 className="text-3xl font-semibold text-slate-900">
-          {lang === "fr" ? "Travaillons ensemble" : "Let’s work together"}
-        </h2>
-
-        <p className="text-sm text-slate-500 max-w-xl mx-auto">
-          International Relations • Development • Social Impact • Consulting
-        </p>
-
-        {/* BACK TO TOP */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-xs text-slate-400 hover:text-slate-700 transition"
-        >
-          Back to top ↑
-        </button>
-
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href="mailto:julienzigabe10@gmail.com"
+            className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-slate-200 transition hover:bg-blue-600 hover:text-white"
+            aria-label="Email Julien Zigabe"
+          >
+            <Mail size={18} />
+          </a>
+          <a
+            href="https://linkedin.com/in/julienz24"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-slate-200 transition hover:bg-blue-600 hover:text-white"
+            aria-label="LinkedIn profile"
+          >
+            <ExternalLink size={18} />
+          </a>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-orange-500 hover:text-white"
+          >
+            {L.top}
+            <ArrowUp size={16} />
+          </button>
+        </div>
       </div>
 
-      {/* COPYRIGHT BAR FULL WIDTH */}
-      <div className="w-full bg-slate-900 text-slate-300 text-center py-4 text-xs">
-        © {year} Julien Zigabe <br /> International Relations • Social Impact • Leadership
+      <div className="border-t border-white/10 py-5 text-center text-xs text-slate-400">
+        © {year} Julien Zigabe. {L.rights}
       </div>
-
     </footer>
   );
 }

@@ -1,169 +1,127 @@
-import { useEffect, useRef, useState } from "react";
 import {
   Brain,
-  Users,
+  FileText,
+  Languages,
   Lightbulb,
   Presentation,
-  FileText,
   Target,
+  Users,
 } from "lucide-react";
+import { createElement } from "react";
 
 export default function Skills({ lang }) {
-  const skills = [
-    {
-      icon: <Users size={18} />,
-      title: lang === "fr" ? "Communication" : "Communication",
-      desc:
-        lang === "fr"
-          ? "Capacité à transmettre des idées clairement et collaborer efficacement."
-          : "Ability to clearly communicate ideas and collaborate effectively.",
+  const L = {
+    fr: {
+      label: "Boîte à outils",
+      title: "Compétences",
+      subtitle:
+        "Des compétences transversales adaptées aux environnements internationaux, aux programmes de terrain et aux équipes multiculturelles.",
+      groups: [
+        {
+          title: "Relations internationales",
+          icon: Languages,
+          skills: ["Analyse politique", "Diplomatie", "Recherche", "Communication interculturelle"],
+        },
+        {
+          title: "Leadership & programmes",
+          icon: Target,
+          skills: ["Gestion de projets", "Coordination d'équipes", "Suivi d'activités", "Facilitation"],
+        },
+        {
+          title: "Innovation sociale",
+          icon: Lightbulb,
+          skills: ["Design thinking", "Entrepreneuriat", "Mentorat", "Développement communautaire"],
+        },
+      ],
+      cards: [
+        ["Communication", "Transmission claire des idées, écoute active et collaboration professionnelle.", Users],
+        ["Résolution de problèmes", "Analyse stratégique, structuration des défis et recherche de solutions réalistes.", Brain],
+        ["Formation", "Animation d'ateliers pratiques pour des publics divers.", Presentation],
+        ["Rédaction", "Rapports, propositions, notes conceptuelles et documents de programme.", FileText],
+      ],
     },
-    {
-      icon: <Brain size={18} />,
-      title: lang === "fr" ? "Résolution de problèmes" : "Problem Solving",
-      desc:
-        lang === "fr"
-          ? "Analyse stratégique et résolution de défis complexes."
-          : "Strategic thinking and solving complex challenges.",
+    en: {
+      label: "Professional Toolkit",
+      title: "Skills",
+      subtitle:
+        "Cross-functional skills suited for international environments, field programs, and multicultural teams.",
+      groups: [
+        {
+          title: "International Relations",
+          icon: Languages,
+          skills: ["Political analysis", "Diplomacy", "Research", "Intercultural communication"],
+        },
+        {
+          title: "Leadership & Programs",
+          icon: Target,
+          skills: ["Project management", "Team coordination", "Activity tracking", "Facilitation"],
+        },
+        {
+          title: "Social Innovation",
+          icon: Lightbulb,
+          skills: ["Design thinking", "Entrepreneurship", "Mentorship", "Community development"],
+        },
+      ],
+      cards: [
+        ["Communication", "Clear idea delivery, active listening, and professional collaboration.", Users],
+        ["Problem Solving", "Strategic analysis, challenge framing, and practical solution design.", Brain],
+        ["Training", "Practical workshop facilitation for diverse audiences.", Presentation],
+        ["Writing", "Reports, proposals, concept notes, and program documents.", FileText],
+      ],
     },
-    {
-      icon: <Presentation size={18} />,
-      title: lang === "fr" ? "Formation & Facilitation" : "Training & Facilitation",
-      desc:
-        lang === "fr"
-          ? "Animation d’ateliers et formation de groupes divers."
-          : "Facilitating workshops and training diverse groups.",
-    },
-    {
-      icon: <Lightbulb size={18} />,
-      title: lang === "fr" ? "Innovation sociale" : "Social Innovation",
-      desc:
-        lang === "fr"
-          ? "Création de solutions à impact pour les communautés."
-          : "Designing impactful solutions for communities.",
-    },
-    {
-      icon: <Target size={18} />,
-      title: lang === "fr" ? "Leadership" : "Leadership",
-      desc:
-        lang === "fr"
-          ? "Encadrement d’équipes et gestion de projets."
-          : "Leading teams and managing impactful projects.",
-    },
-    {
-      icon: <FileText size={18} />,
-      title:
-        lang === "fr"
-          ? "Rédaction professionnelle"
-          : "Proposal & Report Writing",
-      desc:
-        lang === "fr"
-          ? "Rédaction de rapports, propositions et documents stratégiques."
-          : "Writing reports, proposals, and strategic documents.",
-    },
-  ];
-
-  const refs = useRef([]);
-  const [visible, setVisible] = useState([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setVisible((prev) => {
-          let updated = [...prev];
-
-          entries.forEach((entry) => {
-            const index = refs.current.indexOf(entry.target);
-
-            if (entry.isIntersecting) {
-              if (!updated.includes(index)) {
-                updated.push(index);
-              }
-            } else {
-              updated = updated.filter((i) => i !== index);
-            }
-          });
-
-          return updated;
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    refs.current.forEach((el) => el && observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  }[lang];
 
   return (
-    <section id="skills" className="py-20 px-6 bg-white">
+    <section id="skills" className="bg-white px-5 py-24 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="section-kicker">
+              <Brain size={16} />
+              {L.label}
+            </p>
+            <h2 className="section-title mt-4">{L.title}</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">{L.subtitle}</p>
+          </div>
 
-      <div className="max-w-5xl mx-auto">
-
-        {/* TITLE */}
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center">
-          {lang === "fr" ? "Compétences" : "Skills"}
-        </h2>
-
-        {/* SUBTITLE */}
-        <p className="mt-3 text-sm text-slate-600 text-center max-w-xl mx-auto">
-          {lang === "fr"
-            ? "Compétences clés développées à travers des expériences internationales, le leadership et l'engagement communautaire."
-            : "Key competencies developed through international experience, leadership, and community engagement."}
-        </p>
-
-        {/* GRID */}
-        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-          {skills.map((skill, i) => {
-            const isVisible = visible.includes(i);
-
-            return (
-              <div
-                key={i}
-                ref={(el) => (refs.current[i] = el)}
-                className={`group p-5 rounded-2xl border transition-all duration-500 ease-out
-                  
-                  bg-slate-50 border-slate-200
-                  
-                  hover:bg-white hover:shadow-md hover:scale-[1.04] hover:border-blue-200
-
-                  ${isVisible
-                    ? "opacity-100 translate-y-0 scale-100 blur-0"
-                    : "opacity-0 translate-y-12 scale-75 blur-sm"}
-                `}
-                style={{
-                  transitionDelay: `${i * 120}ms`,
-                }}
-              >
-
-                {/* ICON */}
-                <div
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg mb-3 transition-all duration-300
-                  
-                  bg-blue-100 text-blue-600
-                  group-hover:bg-blue-600 group-hover:text-white
-                  `}
-                >
-                  {skill.icon}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {L.cards.map(([title, desc, Icon]) => (
+              <div key={title} className="rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg">
+                <div className="flex size-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
+                  {createElement(Icon, { size: 18 })}
                 </div>
-
-                {/* TITLE */}
-                <h3 className="text-sm font-semibold text-slate-800">
-                  {skill.title}
-                </h3>
-
-                {/* DESCRIPTION */}
-                <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-                  {skill.desc}
-                </p>
-
+                <h3 className="mt-4 font-bold text-slate-950">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
               </div>
-            );
-          })}
-
+            ))}
+          </div>
         </div>
 
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {L.groups.map((group) => {
+            const Icon = group.icon;
+            return (
+              <article key={group.title} className="premium-card reveal">
+                <div className="flex items-center gap-3">
+                  <div className="flex size-11 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
+                    {createElement(Icon, { size: 20 })}
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-950">{group.title}</h3>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-600"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

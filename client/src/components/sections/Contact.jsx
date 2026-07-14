@@ -1,390 +1,197 @@
-// import { Mail, MessageCircle, User, FileText, Send } from "lucide-react";
-// import { useState } from "react";
-
-// export default function Contact({ lang }) {
-//   const [form, setForm] = useState({
-//     name: "",
-//     email: "",
-//     message: "",
-//   });
-
-//   const [sendEmail, setSendEmail] = useState(false);
-//   const [sendWhatsapp, setSendWhatsapp] = useState(false);
-
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
-
-// //   const whatsappMessage = () => {
-// //     const msg = `Hello, my name is ${form.name}. ${form.message}`;
-// //     return encodeURIComponent(msg);
-// //   };
-
-//   const canSend = sendEmail || sendWhatsapp;
-
-//   return (
-//     <section id="contact" className="py-14 px-4 bg-white">
-
-//       <div className="max-w-5xl mx-auto">
-
-//         {/* TITLE */}
-//         <h2 className="text-3xl font-bold text-slate-900 text-center">
-//           {lang === "fr" ? "Contact" : "Contact"}
-//         </h2>
-
-//         <p className="mt-2 text-sm text-slate-600 text-center max-w-xl mx-auto">
-//           {lang === "fr"
-//             ? "Choisissez où vous souhaitez recevoir votre message avant d'envoyer."
-//             : "Choose where you want your message to be sent before submitting."}
-//         </p>
-
-//         <div className="mt-10 grid md:grid-cols-2 gap-8">
-
-//           {/* FORM */}
-//           <div className="p-6 border border-slate-200 rounded-xl bg-white shadow-sm">
-
-//             {/* NAME */}
-//             <label className="text-xs text-slate-600">Name</label>
-//             <div className="flex items-center gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-//               <User size={16} className="text-slate-400" />
-//               <input
-//                 name="name"
-//                 onChange={handleChange}
-//                 className="w-full bg-transparent text-sm text-slate-900 outline-none"
-//                 placeholder="Your name"
-//               />
-//             </div>
-
-//             {/* EMAIL */}
-//             <label className="text-xs text-slate-600">Email</label>
-//             <div className="flex items-center gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-//               <Mail size={16} className="text-slate-400" />
-//               <input
-//                 name="email"
-//                 onChange={handleChange}
-//                 className="w-full bg-transparent text-sm text-slate-900 outline-none"
-//                 placeholder="Email"
-//               />
-//             </div>
-
-//             {/* MESSAGE */}
-//             <label className="text-xs text-slate-600">Message</label>
-//             <div className="flex items-start gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-//               <FileText size={16} className="text-slate-400 mt-1" />
-//               <textarea
-//                 name="message"
-//                 onChange={handleChange}
-//                 className="w-full bg-transparent text-sm text-slate-900 outline-none h-24 resize-none"
-//                 placeholder="Your message..."
-//               />
-//             </div>
-
-//             {/* DESTINATION BOX (NEW) */}
-//             <div className="mb-5 p-4 border rounded-xl bg-slate-50">
-
-//               <p className="text-xs text-slate-600 mb-3">
-//                 Choose where to send:
-//               </p>
-
-//               {/* OPTIONS */}
-//               <div className="flex flex-col gap-3">
-
-//                 {/* EMAIL */}
-//                 <label className="flex items-center justify-between p-3 rounded-lg border border-blue-200 bg-blue-50/50 cursor-pointer">
-//                   <div className="flex items-center gap-2">
-//                     <Mail size={16} className="text-blue-600" />
-//                     <span className="text-sm text-slate-900">Email</span>
-//                   </div>
-
-//                   <input
-//                     type="checkbox"
-//                     checked={sendEmail}
-//                     onChange={() => setSendEmail(!sendEmail)}
-//                     className="accent-blue-600"
-//                   />
-//                 </label>
-
-//                 {/* WHATSAPP */}
-//                 <label className="flex items-center justify-between p-3 rounded-lg border border-green-200 bg-green-50/50 cursor-pointer">
-//                   <div className="flex items-center gap-2">
-//                     <MessageCircle size={16} className="text-green-600" />
-//                     <span className="text-sm text-slate-900">WhatsApp</span>
-//                   </div>
-
-//                   <input
-//                     type="checkbox"
-//                     checked={sendWhatsapp}
-//                     onChange={() => setSendWhatsapp(!sendWhatsapp)}
-//                     className="accent-green-600"
-//                   />
-//                 </label>
-
-//               </div>
-
-//             </div>
-
-//             {/* BUTTON */}
-//             <button
-//               disabled={!canSend}
-//               className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg text-sm transition
-//                 ${canSend
-//                   ? "bg-blue-600 hover:bg-blue-700 text-white"
-//                   : "bg-slate-300 text-slate-500 cursor-not-allowed"
-//                 }`}
-//             >
-//               <Send size={16} />
-//               {lang === "fr" ? "Envoyer" : "Send"}
-//             </button>
-
-//           </div>
-
-//           {/* INFO SIDE */}
-//           <div className="flex flex-col justify-center text-sm text-slate-600">
-//             <p className="mb-4">
-//               {lang === "fr"
-//                 ? "Vous pouvez envoyer votre message à un ou plusieurs canaux simultanément."
-//                 : "You can send your message to one or multiple channels at the same time."}
-//             </p>
-
-//             <div className="p-4 rounded-xl border border-slate-200 bg-white">
-//               <p className="text-xs text-slate-500">
-//                 • Email = réponse professionnelle
-//                 <br />
-//                 • WhatsApp = réponse rapide
-//               </p>
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-
-//     </section>
-//   );
-// }
-
-import { Mail, MessageCircle, User, FileText, Send } from "lucide-react";
+import { FileText, Mail, MapPin, MessageCircle, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact({ lang }) {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [sendEmail, setSendEmail] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sendEmail, setSendEmail] = useState(true);
   const [sendWhatsapp, setSendWhatsapp] = useState(false);
 
-  const t = {
+  const L = {
     fr: {
-      title: "Contact",
-      subtitle: "Choisissez où envoyer votre message puis cliquez sur envoyer.",
+      label: "Entrer en contact",
+      title: "Construisons une collaboration utile.",
+      subtitle:
+        "Pour une opportunité académique, une mission de conseil, un programme jeunesse ou un échange professionnel, envoyez un message directement.",
       name: "Nom",
       email: "Email",
       message: "Message",
       placeholderName: "Votre nom",
       placeholderEmail: "Votre email",
-      placeholderMessage: "Votre message...",
-      destination: "Choisir la destination",
-      send: "Envoyer",
-      info: "Votre message sera envoyé directement selon votre sélection.",
+      placeholderMessage: "Décrivez brièvement votre opportunité ou votre message...",
+      destination: "Destination",
+      send: "Envoyer le message",
       emailLabel: "Email",
       whatsappLabel: "WhatsApp",
-      infoFooter: "• Email et WhatsApp disponibles",
+      direct: "Coordonnées",
+      response: "Réponse professionnelle et rapide selon le canal choisi.",
     },
     en: {
-      title: "Contact",
-      subtitle: "Choose where to send your message then click send.",
+      label: "Get in touch",
+      title: "Let's build a useful collaboration.",
+      subtitle:
+        "For an academic opportunity, consulting mission, youth program, or professional conversation, send a direct message.",
       name: "Name",
       email: "Email",
       message: "Message",
       placeholderName: "Your name",
       placeholderEmail: "Your email",
-      placeholderMessage: "Your message...",
-      destination: "Choose destination",
-      send: "Send",
-      info: "Your message will be sent directly based on your selection.",
+      placeholderMessage: "Briefly describe your opportunity or message...",
+      destination: "Destination",
+      send: "Send message",
       emailLabel: "Email",
       whatsappLabel: "WhatsApp",
-      infoFooter: "• Email & WhatsApp available",
+      direct: "Direct details",
+      response: "Professional, timely response through the channel you choose.",
     },
-  };
-
-  const L = t[lang];
+  }[lang];
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const buildMessage = () => {
-    return `Hello, my name is ${form.name}
+  const buildMessage = () =>
+    `Hello, my name is ${form.name || "[name]"}\n\nEmail: ${
+      form.email || "[email]"
+    }\n\nMessage:\n${form.message || "[message]"}`;
 
-Email: ${form.email}
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-Message:
-${form.message}`;
-  };
+    if (sendWhatsapp) {
+      window.open(
+        `https://wa.me/256760325737?text=${encodeURIComponent(buildMessage())}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
 
-  const sendToWhatsApp = () => {
-    const phone = "254119526770";
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(buildMessage())}`;
-    window.open(url, "_blank");
-  };
-
-  const sendToEmail = () => {
-    const email = "julienzigabe10@gmail.com";
-    const subject = "New Contact Message";
-    const body = encodeURIComponent(buildMessage());
-
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-  };
-
-  const handleSubmit = () => {
-    if (sendWhatsapp) sendToWhatsApp();
-    if (sendEmail) sendToEmail();
+    if (sendEmail) {
+      window.location.href = `mailto:julienzigabe10@gmail.com?subject=${encodeURIComponent(
+        "New Contact Message"
+      )}&body=${encodeURIComponent(buildMessage())}`;
+    }
   };
 
   const canSend = sendEmail || sendWhatsapp;
 
   return (
-    <section id="contact" className="py-14 px-4 bg-white">
-      <div className="max-w-5xl mx-auto">
+    <section id="contact" className="bg-white px-5 py-24 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p className="section-kicker">
+            <Send size={16} />
+            {L.label}
+          </p>
+          <h2 className="section-title mt-4">{L.title}</h2>
+          <p className="mt-5 text-base leading-8 text-slate-600">{L.subtitle}</p>
 
-        {/* TITLE */}
-        <h2 className="text-3xl font-bold text-slate-900 text-center">
-          {L.title}
-        </h2>
-
-        <p className="mt-2 text-sm text-slate-600 text-center max-w-xl mx-auto">
-          {L.subtitle}
-        </p>
-
-        <div className="mt-10 grid md:grid-cols-2 gap-8">
-
-          {/* FORM */}
-          <div className="p-6 border border-slate-200 rounded-xl bg-white shadow-sm">
-
-            {/* NAME */}
-            <label className="text-xs text-slate-600">{L.name}</label>
-            <div className="flex items-center gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-              <User size={16} className="text-slate-400" />
-              <input
-                name="name"
-                onChange={handleChange}
-                className="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-500/50"
-                placeholder={L.placeholderName}
-              />
+          <div className="mt-10 rounded-lg bg-slate-950 p-6 text-white">
+            <h3 className="font-bold">{L.direct}</h3>
+            <div className="mt-5 grid gap-4 text-sm text-slate-200">
+              <a className="flex items-center gap-3 hover:text-white" href="mailto:julienzigabe10@gmail.com">
+                <Mail size={17} className="text-orange-400" />
+                julienzigabe10@gmail.com
+              </a>
+              <p className="flex items-center gap-3">
+                <Phone size={17} className="text-orange-400" />
+                +254 119 526 770 / +256 760 325 737
+              </p>
+              <p className="flex items-center gap-3">
+                <MapPin size={17} className="text-orange-400" />
+                Nairobi, Kenya
+              </p>
             </div>
+            <p className="mt-6 rounded-lg bg-white/10 p-4 text-sm leading-6 text-slate-200">
+              {L.response}
+            </p>
+          </div>
+        </div>
 
-            {/* EMAIL */}
-            <label className="text-xs text-slate-600">{L.email}</label>
-            <div className="flex items-center gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-              <Mail size={16} className="text-slate-400" />
-              <input
-                name="email"
-                onChange={handleChange}
-                className="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-500/50"
-                placeholder={L.placeholderEmail}
-              />
-            </div>
+        <form onSubmit={handleSubmit} className="premium-card">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <label className="block">
+              <span className="text-sm font-semibold text-slate-700">{L.name}</span>
+              <span className="mt-2 flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 transition-within">
+                <User size={17} className="text-slate-400" />
+                <input
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                  className="w-full bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400"
+                  placeholder={L.placeholderName}
+                />
+              </span>
+            </label>
 
-            {/* MESSAGE */}
-            <label className="text-xs text-slate-600">{L.message}</label>
-            <div className="flex items-start gap-2 mb-4 mt-1 px-3 py-2 border rounded-lg bg-slate-50">
-              <FileText size={16} className="text-slate-400 mt-1" />
+            <label className="block">
+              <span className="text-sm font-semibold text-slate-700">{L.email}</span>
+              <span className="mt-2 flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 transition-within">
+                <Mail size={17} className="text-slate-400" />
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400"
+                  placeholder={L.placeholderEmail}
+                />
+              </span>
+            </label>
+          </div>
+
+          <label className="mt-5 block">
+            <span className="text-sm font-semibold text-slate-700">{L.message}</span>
+            <span className="mt-2 flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 transition-within">
+              <FileText size={17} className="mt-1 text-slate-400" />
               <textarea
                 name="message"
+                value={form.message}
                 onChange={handleChange}
-                className="w-full bg-transparent text-sm text-slate-900 outline-none h-24 resize-none placeholder:text-slate-500/50"
+                className="min-h-36 w-full resize-none bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-400"
                 placeholder={L.placeholderMessage}
               />
-            </div>
+            </span>
+          </label>
 
-            {/* DESTINATION */}
-            <div className="mb-5 p-4 border rounded-xl bg-slate-50">
-              <p className="text-xs text-slate-600 mb-3">
-                {L.destination}
-              </p>
-
-              <div className="flex flex-col gap-3">
-
-                {/* EMAIL */}
-                <label
-                  className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition
-                  ${sendEmail
-                      ? "bg-blue-100/60 border-blue-300"
-                      : "bg-blue-50/30 border-blue-200 hover:bg-blue-50/60"
-                    }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <Mail size={16} className="text-blue-500" />
-                    <span className="text-sm font-medium text-slate-700">
-                      {L.emailLabel}
-                    </span>
-                  </div>
-
-                  <input
-                    type="checkbox"
-                    checked={sendEmail}
-                    onChange={() => setSendEmail(!sendEmail)}
-                    className="accent-blue-600"
-                  />
-                </label>
-
-                {/* WHATSAPP */}
-                <label
-                  className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition
-                  ${sendWhatsapp
-                      ? "bg-green-100/60 border-green-300"
-                      : "bg-green-50/30 border-green-200 hover:bg-green-50/60"
-                    }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <MessageCircle size={16} className="text-green-500" />
-                    <span className="text-sm font-medium text-slate-700">
-                      {L.whatsappLabel}
-                    </span>
-                  </div>
-
-                  <input
-                    type="checkbox"
-                    checked={sendWhatsapp}
-                    onChange={() => setSendWhatsapp(!sendWhatsapp)}
-                    className="accent-green-600"
-                  />
-                </label>
-
-              </div>
-            </div>
-
-            {/* BUTTON */}
-            <button
-              disabled={!canSend}
-              onClick={handleSubmit}
-              className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg text-sm transition
-              ${canSend
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "bg-slate-300 text-slate-500 cursor-not-allowed"
-                }`}
-            >
-              <Send size={16} />
-              {L.send}
-            </button>
-
-          </div>
-
-          {/* INFO SIDE */}
-          <div className="flex flex-col justify-center text-sm text-slate-600">
-            <p className="mb-4">{L.info}</p>
-
-            <div className="p-4 rounded-xl border border-slate-200 bg-white">
-              <p className="text-xs text-slate-500">
-                {L.infoFooter}
-             </p>
+          <div className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <p className="text-sm font-semibold text-slate-700">{L.destination}</p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              <label className="flex cursor-pointer items-center justify-between rounded-lg border border-blue-100 bg-white p-4">
+                <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <Mail size={17} className="text-blue-600" />
+                  {L.emailLabel}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={sendEmail}
+                  onChange={() => setSendEmail((value) => !value)}
+                  className="size-4 accent-blue-600"
+                />
+              </label>
+              <label className="flex cursor-pointer items-center justify-between rounded-lg border border-green-100 bg-white p-4">
+                <span className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                  <MessageCircle size={17} className="text-green-600" />
+                  {L.whatsappLabel}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={sendWhatsapp}
+                  onChange={() => setSendWhatsapp((value) => !value)}
+                  className="size-4 accent-green-600"
+                />
+              </label>
             </div>
           </div>
 
-        </div>
+          <button
+            type="submit"
+            disabled={!canSend}
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:shadow-none"
+          >
+            <Send size={18} />
+            {L.send}
+          </button>
+        </form>
       </div>
     </section>
   );

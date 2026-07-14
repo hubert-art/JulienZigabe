@@ -1,199 +1,193 @@
 import {
   Briefcase,
   GraduationCap,
-  Globe,
-  Users,
+  Globe2,
+  Handshake,
   TrendingUp,
+  Users,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 
 export default function Experience({ lang }) {
-  const experiences = [
-    {
-      title: "Integrated UPSHIFT Consultant",
-      org: "UNICEF – War Child Alliance Uganda",
-      date: "2025",
-      icon: Globe,
+  const L = {
+    fr: {
+      label: "Parcours professionnel",
+      title: "Expérience",
+      subtitle:
+        "Un parcours construit entre formation, conseil, développement international et programmes à impact social.",
+      impact: "Contribution clé",
+      experiences: [
+        {
+          title: "Integrated UPSHIFT Consultant",
+          org: "UNICEF - War Child Alliance Uganda",
+          date: "2025",
+          desc: "Accompagnement de jeunes dans l'idéation, la résolution de problèmes et la structuration de projets à impact.",
+          icon: Globe2,
+        },
+        {
+          title: "Business Strengthening Trainer",
+          org: "The Innovation Village - Save the Children, USAID Uthabiti Project",
+          date: "2023",
+          desc: "Formation d'entrepreneurs et de groupes communautaires sur la gestion, la planification et la croissance durable.",
+          icon: TrendingUp,
+        },
+        {
+          title: "Business Development Consultant",
+          org: "KOICA - INNOPORT Uganda Country Office",
+          date: "2023",
+          desc: "Appui au développement d'initiatives entrepreneuriales et de modèles de prestation orientés résultats.",
+          icon: Briefcase,
+        },
+        {
+          title: "Business Consultant",
+          org: "Jesuit Refugee Services",
+          date: "2023",
+          desc: "Conseil et mentorat pour soutenir l'autonomie économique de communautés réfugiées et hôtes.",
+          icon: Handshake,
+        },
+        {
+          title: "Business Trainer & Mentor",
+          org: "Starthub Africa Consulting Ltd",
+          date: "2023",
+          desc: "Animation de sessions pratiques sur l'entrepreneuriat, la stratégie et la préparation au marché.",
+          icon: GraduationCap,
+        },
+        {
+          title: "Financial Education Consultant",
+          org: "International Labour Organization",
+          date: "2022",
+          desc: "Facilitation de contenus d'éducation financière et de compétences économiques inclusives.",
+          icon: Globe2,
+        },
+        {
+          title: "Founder & Managing Director",
+          org: "Anzisha Impact Hub",
+          date: "2020 - Present",
+          desc: "Direction d'une plateforme dédiée au leadership des jeunes, à l'innovation sociale et à l'entrepreneuriat.",
+          icon: Briefcase,
+        },
+        {
+          title: "Co-founder & Director",
+          org: "Refugee Global Talent",
+          date: "2018",
+          desc: "Co-création d'une initiative valorisant les talents réfugiés et leur potentiel de leadership.",
+          icon: Users,
+        },
+      ],
     },
-    {
-      title: "Business Strengthening Trainer",
-      org: "The Innovation Village – Save the Children (USAID Uthabiti Project)",
-      date: "2023",
-      icon: TrendingUp,
+    en: {
+      label: "Professional Journey",
+      title: "Experience",
+      subtitle:
+        "A career path across training, consulting, international development, and social impact programs.",
+      impact: "Key contribution",
+      experiences: [
+        {
+          title: "Integrated UPSHIFT Consultant",
+          org: "UNICEF - War Child Alliance Uganda",
+          date: "2025",
+          desc: "Supported youth through ideation, problem solving, and structuring community-centered impact projects.",
+          icon: Globe2,
+        },
+        {
+          title: "Business Strengthening Trainer",
+          org: "The Innovation Village - Save the Children, USAID Uthabiti Project",
+          date: "2023",
+          desc: "Trained entrepreneurs and community groups in business management, planning, and sustainable growth.",
+          icon: TrendingUp,
+        },
+        {
+          title: "Business Development Consultant",
+          org: "KOICA - INNOPORT Uganda Country Office",
+          date: "2023",
+          desc: "Supported entrepreneurial initiatives and outcome-oriented service models for program delivery.",
+          icon: Briefcase,
+        },
+        {
+          title: "Business Consultant",
+          org: "Jesuit Refugee Services",
+          date: "2023",
+          desc: "Provided consulting and mentoring to strengthen economic independence for refugee and host communities.",
+          icon: Handshake,
+        },
+        {
+          title: "Business Trainer & Mentor",
+          org: "Starthub Africa Consulting Ltd",
+          date: "2023",
+          desc: "Facilitated practical sessions on entrepreneurship, strategy, and market readiness.",
+          icon: GraduationCap,
+        },
+        {
+          title: "Financial Education Consultant",
+          org: "International Labour Organization",
+          date: "2022",
+          desc: "Delivered financial education content and inclusive economic skills facilitation.",
+          icon: Globe2,
+        },
+        {
+          title: "Founder & Managing Director",
+          org: "Anzisha Impact Hub",
+          date: "2020 - Present",
+          desc: "Leads a platform focused on youth leadership, social innovation, and entrepreneurship.",
+          icon: Briefcase,
+        },
+        {
+          title: "Co-founder & Director",
+          org: "Refugee Global Talent",
+          date: "2018",
+          desc: "Co-created an initiative elevating refugee talent and leadership potential.",
+          icon: Users,
+        },
+      ],
     },
-    {
-      title: "Business Development Consultant",
-      org: "KOICA – INNOPORT (Uganda Country Office)",
-      date: "2023",
-      icon: Briefcase,
-    },
-    {
-      title: "Business Consultant",
-      org: "Jesuit Refugee Services (JRS)",
-      date: "2023",
-      icon: Users,
-    },
-    {
-      title: "Business Trainer & Mentor",
-      org: "Starthub Africa Consulting Ltd",
-      date: "2023",
-      icon: GraduationCap,
-    },
-    {
-      title: "Financial Literacy Co-Facilitator",
-      org: "Opportunity Bank Uganda",
-      date: "2022",
-      icon: TrendingUp,
-    },
-    {
-      title: "Financial Education Consultant",
-      org: "International Labour Organization (ILO)",
-      date: "2022",
-      icon: Globe,
-    },
-    {
-      title: "Founder & Managing Director",
-      org: "Anzisha Impact Hub",
-      date: "2020 – Present",
-      icon: Briefcase,
-    },
-    {
-      title: "Program Contributor",
-      org: "UNLEASHED Potentials in Motion",
-      date: "2019 – 2021",
-      icon: Users,
-    },
-    {
-      title: "Co-founder & Director",
-      org: "Refugee Global Talent",
-      date: "2018",
-      icon: GraduationCap,
-    },
-  ];
-
-  const containerRef = useRef(null);
-  const [visibleItems, setVisibleItems] = useState([]);
-  const [lineHeight, setLineHeight] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const items = document.querySelectorAll(".exp-item");
-      const newVisible = [];
-
-      items.forEach((item, index) => {
-        const rect = item.getBoundingClientRect();
-
-        if (rect.top < window.innerHeight * 0.85) {
-          newVisible.push(index);
-        }
-      });
-
-      setVisibleItems(newVisible);
-
-      // LINE PROGRESS
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const totalHeight = containerRef.current.scrollHeight;
-
-        let progress =
-          (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
-
-        progress = Math.max(0, Math.min(1, progress));
-
-        setLineHeight(progress * totalHeight);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }[lang];
 
   return (
     <section
       id="experience"
-      className="py-24 px-6 bg-linear-to-b from-white to-slate-50"
+      className="bg-linear-to-b from-white via-slate-50 to-white px-5 py-24 lg:px-8"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="section-kicker justify-center">
+            <Briefcase size={16} />
+            {L.label}
+          </p>
+          <h2 className="section-title mt-4">{L.title}</h2>
+          <p className="mt-4 text-base leading-7 text-slate-600">{L.subtitle}</p>
+        </div>
 
-        {/* TITLE */}
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center">
-          {lang === "fr" ? "Expérience" : "Experience"}
-        </h2>
-
-        <p className="text-center text-slate-500 mt-3 text-sm max-w-xl mx-auto">
-          {lang === "fr"
-            ? "Expérience en développement international, formation et leadership"
-            : "International development, training, consulting & leadership roles"}
-        </p>
-
-        {/* TIMELINE */}
-        <div ref={containerRef} className="mt-16 relative">
-
-          {/* ANIMATED LINE */}
-          <div className="absolute left-4 md:left-1/2 w-0.5 h-full bg-slate-200 opacity-30" />
-
-          <div
-            className="absolute left-4 md:left-1/2 w-0.5 bg-linear-to-b from-blue-400/30 via-slate-400/40 to-orange-400/30 transition-all duration-300"
-            style={{ height: lineHeight }}
-          />
-
-          {experiences.map((exp, i) => {
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
+          {L.experiences.map((exp, index) => {
             const Icon = exp.icon;
-            const isVisible = visibleItems.includes(i);
 
             return (
-              <div
-                key={i}
-                className={`exp-item mb-12 flex items-start gap-6 ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+              <article
+                key={`${exp.title}-${exp.org}`}
+                className="group premium-card reveal relative overflow-hidden"
+                style={{ animationDelay: `${index * 70}ms` }}
               >
-
-                {/* ICON */}
-                <div
-                  className={`relative z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white shadow-sm border border-slate-200 transition-all duration-500
-                  ${
-                    isVisible
-                      ? "opacity-100 scale-100 translate-y-0"
-                      : "opacity-0 scale-50 translate-y-5"
-                  }`}
-                >
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
-                    <Icon size={16} className="text-blue-600" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-blue-600 via-slate-300 to-orange-500 opacity-0 transition group-hover:opacity-100" />
+                <div className="flex items-start gap-4">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+                    <Icon size={21} />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-md bg-orange-50 px-2.5 py-1 text-xs font-bold text-orange-600">
+                        {exp.date}
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                        {L.impact}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-bold text-slate-950">{exp.title}</h3>
+                    <p className="mt-1 text-sm font-semibold text-blue-700">{exp.org}</p>
+                    <p className="mt-4 text-sm leading-7 text-slate-600">{exp.desc}</p>
                   </div>
                 </div>
-
-                {/* CARD */}
-                <div
-                  className={`flex-1 rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white transition-all duration-700
-                  ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
-                  }`}
-                >
-
-                  {/* TITLE */}
-                  <div className="bg-white px-5 py-4">
-                    <p className="text-xs text-slate-400">{exp.date}</p>
-
-                    <h3 className="text-lg font-semibold text-slate-900 mt-1">
-                      {exp.title}
-                    </h3>
-                  </div>
-
-                  {/* DESCRIPTION */}
-                  <div className="bg-slate-50 px-5 py-4 border-t border-slate-100">
-                    <p className="text-sm text-slate-600">{exp.org}</p>
-                  </div>
-
-                </div>
-              </div>
+              </article>
             );
           })}
-
         </div>
       </div>
     </section>

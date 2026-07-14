@@ -1,264 +1,95 @@
-// import { Award, Star, Globe, Trophy } from "lucide-react";
-
-// export default function Achievements({ lang }) {
-//   const achievements = [
-//     {
-//       icon: <Trophy size={18} />,
-//       title: "RIHAM GO EXTREME Challenge",
-//       desc:
-//         lang === "fr"
-//           ? "Lauréat du challenge international."
-//           : "Top winner of the international challenge.",
-//     },
-//     {
-//       icon: <Globe size={18} />,
-//       title: "YALI East Africa Regional Fellow",
-//       desc:
-//         lang === "fr"
-//           ? "Programme de leadership soutenu par les États-Unis."
-//           : "Prestigious leadership program supported by the U.S.",
-//     },
-//     {
-//       icon: <Star size={18} />,
-//       title: "SAVVY Fellowship Program",
-//       desc:
-//         lang === "fr"
-//           ? "Programme global pour entrepreneurs à impact."
-//           : "Global fellowship for impact-driven entrepreneurs.",
-//     },
-//     {
-//       icon: <Award size={18} />,
-//       title: "Young African Leaders Awards",
-//       desc:
-//         lang === "fr"
-//           ? "Nominé parmi les jeunes leaders africains."
-//           : "Nominee among emerging African leaders.",
-//     },
-//     {
-//       icon: <Globe size={18} />,
-//       title: "SINA Global Acceleration",
-//       desc:
-//         lang === "fr"
-//           ? "Programme d'accélération pour innovation sociale."
-//           : "Acceleration program for social innovation.",
-//     },
-//     {
-//       icon: <Star size={18} />,
-//       title: "Global Startup Ecosystem",
-//       desc:
-//         lang === "fr"
-//           ? "Participation à un réseau international de startups."
-//           : "Part of a global startup ecosystem network.",
-//     },
-//   ];
-
-//   return (
-//     <section id="achievements" className="py-16 px-4 bg-slate-50">
-
-//       <div className="max-w-5xl mx-auto">
-
-//         {/* TITLE */}
-//         <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center">
-//           {lang === "fr" ? "Réalisations & Distinctions" : "Achievements & Awards"}
-//         </h2>
-
-//         {/* SUBTITLE */}
-//         <p className="mt-3 text-sm text-slate-600 text-center max-w-xl mx-auto">
-//           {lang === "fr"
-//             ? "Reconnaissances internationales reflétant l'engagement, le leadership et l'impact social."
-//             : "International recognitions reflecting leadership, impact, and commitment to social change."}
-//         </p>
-
-//         {/* GRID */}
-//         <div className="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-
-//           {achievements.map((item, i) => (
-//             <div
-//               key={i}
-//               className="group p-4 rounded-xl border border-slate-200 bg-white hover:shadow-md transition"
-//             >
-
-//               {/* ICON */}
-//               <div className="w-9 h-9 flex items-center justify-center rounded-md bg-orange-100 text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition">
-//                 {item.icon}
-//               </div>
-
-//               {/* TITLE */}
-//               <h3 className="mt-3 text-sm font-semibold text-slate-800">
-//                 {item.title}
-//               </h3>
-
-//               {/* DESCRIPTION */}
-//               <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-//                 {item.desc}
-//               </p>
-
-//             </div>
-//           ))}
-
-//         </div>
-
-//       </div>
-
-//     </section>
-//   );
-// }
-
-
-
-import { useEffect, useRef, useState } from "react";
-import { Award, Star, Globe, Trophy } from "lucide-react";
+import { Award, BadgeCheck, Globe2, Medal, Star, Trophy } from "lucide-react";
+import { createElement } from "react";
 
 export default function Achievements({ lang }) {
-  const achievements = [
-    {
-      icon: <Trophy size={18} />,
-      title: "RIHAM GO EXTREME Challenge",
-      desc:
-        lang === "fr"
-          ? "Lauréat du challenge international."
-          : "Top winner of the international challenge.",
+  const L = {
+    fr: {
+      label: "Reconnaissances",
+      title: "Réalisations & Certifications",
+      subtitle:
+        "Distinctions, programmes et certificats qui renforcent un profil orienté leadership, entrepreneuriat et impact social.",
+      achievements: [
+        ["RIHAM GO EXTREME Challenge", "Lauréat d'un challenge international valorisant l'initiative et la performance.", Trophy],
+        ["YALI East Africa Regional Fellow", "Programme de leadership régional soutenu par les États-Unis.", Globe2],
+        ["SAVVY Fellowship Program", "Programme mondial pour entrepreneurs à impact.", Star],
+        ["Young African Leaders Awards", "Nomination parmi les jeunes leaders africains émergents.", Medal],
+        ["SINA Global Acceleration", "Programme d'accélération pour solutions d'innovation sociale.", Award],
+        ["Global Startup Ecosystem", "Participation à un réseau international de startups et d'innovation.", Globe2],
+      ],
+      certifications: [
+        "SIYB - International Labour Organization",
+        "Leadership & Entrepreneurship",
+        "Non-Violent Communication",
+        "Life Coaching",
+      ],
     },
-    {
-      icon: <Globe size={18} />,
-      title: "YALI East Africa Regional Fellow",
-      desc:
-        lang === "fr"
-          ? "Programme de leadership soutenu par les États-Unis."
-          : "Prestigious leadership program supported by the U.S.",
+    en: {
+      label: "Recognition",
+      title: "Achievements & Certifications",
+      subtitle:
+        "Awards, programs, and certifications that strengthen a leadership, entrepreneurship, and social impact profile.",
+      achievements: [
+        ["RIHAM GO EXTREME Challenge", "Winner in an international challenge recognizing initiative and performance.", Trophy],
+        ["YALI East Africa Regional Fellow", "Regional leadership program supported by the United States.", Globe2],
+        ["SAVVY Fellowship Program", "Global fellowship for impact-driven entrepreneurs.", Star],
+        ["Young African Leaders Awards", "Nominee among emerging African leaders.", Medal],
+        ["SINA Global Acceleration", "Acceleration program for social innovation solutions.", Award],
+        ["Global Startup Ecosystem", "Participation in an international startup and innovation network.", Globe2],
+      ],
+      certifications: [
+        "SIYB - International Labour Organization",
+        "Leadership & Entrepreneurship",
+        "Non-Violent Communication",
+        "Life Coaching",
+      ],
     },
-    {
-      icon: <Star size={18} />,
-      title: "SAVVY Fellowship Program",
-      desc:
-        lang === "fr"
-          ? "Programme global pour entrepreneurs à impact."
-          : "Global fellowship for impact-driven entrepreneurs.",
-    },
-    {
-      icon: <Award size={18} />,
-      title: "Young African Leaders Awards",
-      desc:
-        lang === "fr"
-          ? "Nominé parmi les jeunes leaders africains."
-          : "Nominee among emerging African leaders.",
-    },
-    {
-      icon: <Globe size={18} />,
-      title: "SINA Global Acceleration",
-      desc:
-        lang === "fr"
-          ? "Programme d'accélération pour innovation sociale."
-          : "Acceleration program for social innovation.",
-    },
-    {
-      icon: <Star size={18} />,
-      title: "Global Startup Ecosystem",
-      desc:
-        lang === "fr"
-          ? "Participation à un réseau international de startups."
-          : "Part of a global startup ecosystem network.",
-    },
-  ];
-
-  const refs = useRef([]);
-  const [visible, setVisible] = useState([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setVisible((prev) => {
-          let updated = [...prev];
-
-          entries.forEach((entry) => {
-            const index = refs.current.indexOf(entry.target);
-
-            if (entry.isIntersecting) {
-              if (!updated.includes(index)) {
-                updated.push(index);
-              }
-            } else {
-              updated = updated.filter((i) => i !== index);
-            }
-          });
-
-          return updated;
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    refs.current.forEach((el) => el && observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  }[lang];
 
   return (
-    <section id="achievements" className="py-20 px-6 bg-slate-50">
+    <section id="achievements" className="bg-slate-950 px-5 py-24 text-white lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-200">
+              <Award size={16} />
+              {L.label}
+            </p>
+            <h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">
+              {L.title}
+            </h2>
+            <p className="mt-5 text-base leading-8 text-slate-300">{L.subtitle}</p>
 
-      <div className="max-w-5xl mx-auto">
-
-        {/* TITLE */}
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 text-center">
-          {lang === "fr" ? "Réalisations & Distinctions" : "Achievements & Awards"}
-        </h2>
-
-        {/* SUBTITLE */}
-        <p className="mt-3 text-sm text-slate-600 text-center max-w-xl mx-auto">
-          {lang === "fr"
-            ? "Reconnaissances internationales reflétant l'engagement, le leadership et l'impact social."
-            : "International recognitions reflecting leadership, impact, and commitment to social change."}
-        </p>
-
-        {/* GRID */}
-        <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-          {achievements.map((item, i) => {
-            const isVisible = visible.includes(i);
-
-            return (
-              <div
-                key={i}
-                ref={(el) => (refs.current[i] = el)}
-                className={`group p-5 rounded-2xl border transition-all duration-500 ease-out
-                  
-                  bg-white border-slate-200
-                  
-                  ${isVisible
-                    ? "opacity-100 translate-y-0 scale-100 blur-0"
-                    : "opacity-0 translate-y-12 scale-75 blur-sm"}
-                  
-                  hover:scale-105 hover:shadow-lg
-                `}
-                style={{
-                  transitionDelay: `${i * 120}ms`,
-                }}
-              >
-
-                {/* ICON */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-lg mb-3 transition-all duration-300
-                  bg-orange-100 text-orange-500
-                  group-hover:bg-orange-500 group-hover:text-white
-                ">
-                  {item.icon}
-                </div>
-
-                {/* TITLE */}
-                <h3 className="text-sm font-semibold text-slate-800">
-                  {item.title}
-                </h3>
-
-                {/* DESCRIPTION */}
-                <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-                  {item.desc}
-                </p>
-
+            <div className="mt-8 rounded-lg border border-white/10 bg-white/5 p-6">
+              <h3 className="flex items-center gap-2 font-bold">
+                <BadgeCheck size={19} className="text-orange-400" />
+                {lang === "fr" ? "Certifications clés" : "Key Certifications"}
+              </h3>
+              <div className="mt-5 grid gap-3">
+                {L.certifications.map((item) => (
+                  <p key={item} className="rounded-lg bg-white/10 px-4 py-3 text-sm text-slate-100">
+                    {item}
+                  </p>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          </div>
 
+          <div className="grid gap-4 sm:grid-cols-2">
+            {L.achievements.map(([title, desc, Icon], index) => (
+              <article
+                key={title}
+                className="rounded-lg border border-white/10 bg-white/[0.06] p-5 transition hover:-translate-y-1 hover:border-orange-400/50 hover:bg-white/[0.09]"
+                style={{ animationDelay: `${index * 80}ms` }}
+              >
+                <div className="flex size-11 items-center justify-center rounded-lg bg-white text-orange-500">
+                  {createElement(Icon, { size: 20 })}
+                </div>
+                <h3 className="mt-5 font-bold text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{desc}</p>
+              </article>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );
