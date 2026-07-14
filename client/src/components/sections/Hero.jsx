@@ -116,7 +116,7 @@ export default function Hero({ lang }) {
 
           <div className="relative rounded-[2rem] border border-slate-200 bg-white p-3 shadow-2xl shadow-slate-200">
             <img
-              src="/profil.jpg"
+              src="/JZ.png"
               alt="Julien Zigabe portrait"
               className="aspect-[4/5] w-full rounded-[1.55rem] object-cover"
             />
