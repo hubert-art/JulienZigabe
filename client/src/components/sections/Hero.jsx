@@ -15,7 +15,7 @@ export default function Hero({ lang }) {
       stats: [
         ["7+", "années d'engagement"],
         ["10+", "missions & programmes"],
-        ["5", "langues de travail"],
+        ["4", "langues de travail"],
       ],
       badges: ["YALI Fellow", "ILO Trainer", "UNICEF Consultant", "Startup Mentor"],
     },
@@ -32,7 +32,7 @@ export default function Hero({ lang }) {
       stats: [
         ["7+", "years of engagement"],
         ["10+", "roles & programs"],
-        ["5", "working languages"],
+        ["4", "working languages"],
       ],
       badges: ["YALI Fellow", "ILO Trainer", "UNICEF Consultant", "Startup Mentor"],
     },
