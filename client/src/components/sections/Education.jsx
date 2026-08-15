@@ -3,10 +3,10 @@ import { BookOpenCheck, Calendar, GraduationCap, MapPin } from "lucide-react";
 export default function Education({ lang }) {
   const L = {
     fr: {
-      label: "Formation académique",
-      title: "Éducation",
+      label: "Fondation académique",
+      title: "Une perspective qui complète le terrain",
       subtitle:
-        "Une base académique en relations internationales enrichie par des programmes de leadership, d'entrepreneuriat et de développement.",
+        "Les relations internationales apportent une grille de lecture complémentaire à une expérience déjà construite dans le développement et l’impact social.",
       degree: "Licence en Relations Internationales",
       school: "United States International University Africa",
       status: "En cours",
@@ -24,9 +24,9 @@ export default function Education({ lang }) {
     },
     en: {
       label: "Academic Foundation",
-      title: "Education",
+      title: "A perspective that complements fieldwork",
       subtitle:
-        "An International Relations foundation strengthened by leadership, entrepreneurship, and development programs.",
+        "International Relations brings an additional lens to experience already built across development and social impact.",
       degree: "Bachelor of International Relations",
       school: "United States International University Africa",
       status: "In progress",

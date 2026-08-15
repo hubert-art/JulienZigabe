@@ -1,70 +1,46 @@
-import { ArrowUpRight, FileSearch, Globe2, Lightbulb, UsersRound } from "lucide-react";
+import { ArrowUpRight, Lightbulb, UsersRound, FileSearch } from "lucide-react";
 
-export default function Projects({ lang }) {
+export default function Projects({ lang, showHeader = true }) {
   const L = {
     fr: {
-      label: "Recherche & projets",
-      title: "Projets à impact",
+      label: "Initiatives portées",
+      title: "Leadership en action",
       subtitle:
-        "Des initiatives qui montrent la capacité à transformer l'analyse en action, avec un accent sur la jeunesse, les réfugiés et l'entrepreneuriat social.",
-      view: "Explorer",
+        "Deux initiatives qui rendent visible un engagement durable pour le leadership des jeunes, l’innovation sociale et l’inclusion des talents réfugiés.",
+      view: "Travaillons ensemble",
       projects: [
         {
           title: "Anzisha Impact Hub",
-          type: "Leadership social",
-          desc: "Plateforme d'accompagnement des jeunes autour de l'entrepreneuriat, du mentorat et de l'innovation communautaire.",
+          type: "Fondateur & Directeur général",
+          desc: "Direction d’une plateforme dédiée au leadership des jeunes, à l’innovation sociale et à l’entrepreneuriat.",
           icon: Lightbulb,
         },
         {
           title: "Refugee Global Talent",
-          type: "Inclusion & talent",
-          desc: "Initiative cofondée pour valoriser les talents réfugiés et renforcer leur visibilité professionnelle.",
+          type: "Cofondateur & Directeur",
+          desc: "Co-création d’une initiative qui valorise les talents réfugiés et leur potentiel de leadership.",
           icon: UsersRound,
-        },
-        {
-          title: "Youth Enterprise Training",
-          type: "Formation pratique",
-          desc: "Sessions de renforcement des compétences entrepreneuriales, financières et de planification de projet.",
-          icon: Globe2,
-        },
-        {
-          title: "Community Research Notes",
-          type: "Recherche appliquée",
-          desc: "Axes de recherche sur la jeunesse, la mobilité, l'autonomie économique et la cohésion communautaire.",
-          icon: FileSearch,
         },
       ],
     },
     en: {
-      label: "Research & Projects",
-      title: "Impact Projects",
+      label: "Initiatives Led",
+      title: "Leadership in action",
       subtitle:
-        "Initiatives showing the ability to turn analysis into action, with a focus on youth, refugees, and social entrepreneurship.",
-      view: "Explore",
+        "Two initiatives that make a sustained commitment to youth leadership, social innovation, and refugee talent inclusion visible.",
+      view: "Work together",
       projects: [
         {
           title: "Anzisha Impact Hub",
-          type: "Social leadership",
-          desc: "A youth-centered platform supporting entrepreneurship, mentorship, and community innovation.",
+          type: "Founder & Managing Director",
+          desc: "Leads a platform focused on youth leadership, social innovation, and entrepreneurship.",
           icon: Lightbulb,
         },
         {
           title: "Refugee Global Talent",
-          type: "Inclusion & talent",
-          desc: "A co-founded initiative elevating refugee talent and strengthening professional visibility.",
+          type: "Co-founder & Director",
+          desc: "Co-created an initiative elevating refugee talent and leadership potential.",
           icon: UsersRound,
-        },
-        {
-          title: "Youth Enterprise Training",
-          type: "Practical training",
-          desc: "Capacity-building sessions in entrepreneurship, financial literacy, and project planning.",
-          icon: Globe2,
-        },
-        {
-          title: "Community Research Notes",
-          type: "Applied research",
-          desc: "Research interests around youth, mobility, economic independence, and community cohesion.",
-          icon: FileSearch,
         },
       ],
     },
@@ -73,7 +49,7 @@ export default function Projects({ lang }) {
   return (
     <section id="projects" className="bg-white px-5 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        {showHeader && <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="section-kicker">
               <FileSearch size={16} />
@@ -89,9 +65,9 @@ export default function Projects({ lang }) {
             {L.view}
             <ArrowUpRight size={17} />
           </a>
-        </div>
+        </div>}
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className={`${showHeader ? "mt-12" : ""} grid gap-5 md:grid-cols-2`}>
           {L.projects.map((project, index) => {
             const Icon = project.icon;
             return (

@@ -9,9 +9,9 @@ export default function Contact({ lang }) {
   const L = {
     fr: {
       label: "Entrer en contact",
-      title: "Construisons une collaboration utile.",
+      title: "Échangeons sur une collaboration utile.",
       subtitle:
-        "Pour une opportunité académique, une mission de conseil, un programme jeunesse ou un échange professionnel, envoyez un message directement.",
+        "Pour une mission de conseil, un programme jeunesse, une initiative communautaire ou un échange professionnel, envoyez un message directement.",
       name: "Nom",
       email: "Email",
       message: "Message",
@@ -27,9 +27,9 @@ export default function Contact({ lang }) {
     },
     en: {
       label: "Get in touch",
-      title: "Let's build a useful collaboration.",
+      title: "Let's start a useful conversation.",
       subtitle:
-        "For an academic opportunity, consulting mission, youth program, or professional conversation, send a direct message.",
+        "For a consulting mission, youth program, community initiative, or professional conversation, send a direct message.",
       name: "Name",
       email: "Email",
       message: "Message",

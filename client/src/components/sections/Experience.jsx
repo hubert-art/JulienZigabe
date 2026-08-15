@@ -7,14 +7,14 @@ import {
   Users,
 } from "lucide-react";
 
-export default function Experience({ lang }) {
+export default function Experience({ lang, limit, showHeader = true }) {
   const L = {
     fr: {
-      label: "Parcours professionnel",
-      title: "Expérience",
+      label: "Expérience sélectionnée",
+      title: "Une trajectoire entre développement et impact",
       subtitle:
-        "Un parcours construit entre formation, conseil, développement international et programmes à impact social.",
-      impact: "Contribution clé",
+        "Des rôles qui relient développement international, conseil, entrepreneuriat, formation et inclusion économique.",
+      impact: "Domaine de contribution",
       experiences: [
         {
           title: "Integrated UPSHIFT Consultant",
@@ -75,11 +75,11 @@ export default function Experience({ lang }) {
       ],
     },
     en: {
-      label: "Professional Journey",
-      title: "Experience",
+      label: "Selected Experience",
+      title: "A path across development and impact",
       subtitle:
-        "A career path across training, consulting, international development, and social impact programs.",
-      impact: "Key contribution",
+        "Roles connecting international development, consulting, entrepreneurship, training, and economic inclusion.",
+      impact: "Contribution area",
       experiences: [
         {
           title: "Integrated UPSHIFT Consultant",
@@ -147,17 +147,17 @@ export default function Experience({ lang }) {
       className="bg-linear-to-b from-white via-slate-50 to-white px-5 py-24 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
+        {showHeader && <div className="mx-auto max-w-3xl text-center">
           <p className="section-kicker justify-center">
             <Briefcase size={16} />
             {L.label}
           </p>
           <h2 className="section-title mt-4">{L.title}</h2>
           <p className="mt-4 text-base leading-7 text-slate-600">{L.subtitle}</p>
-        </div>
+        </div>}
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-2">
-          {L.experiences.map((exp, index) => {
+        <div className={`${showHeader ? "mt-14" : ""} grid gap-5 lg:grid-cols-2`}>
+          {L.experiences.slice(0, limit).map((exp, index) => {
             const Icon = exp.icon;
 
             return (

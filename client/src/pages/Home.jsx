@@ -1,32 +1,19 @@
-import Experience from "@/components/sections/Experience";
-import Navbar from "../components/layout/Navbar";
-import Hero from "../components/sections/Hero";
-import About from "@/components/sections/About";
-import Education from "@/components/sections/Education";
+import { ArrowRight, BriefcaseBusiness, Compass, Lightbulb } from "lucide-react";
+import Hero from "@/components/sections/Hero";
 import Skills from "@/components/sections/Skills";
-import Achievements from "@/components/sections/Achievements";
+import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
-import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/layout/Footer";
-import { useState } from "react";
 
-export default function Home() {
-  const [lang, setLang] = useState(() => localStorage.getItem("lang") || "en");
+export default function Home({ lang }) {
+  const L = lang === "fr"
+    ? { snapshot: "En bref", title: "Des compétences au service de l’action.", desc: "Un profil à l’intersection du développement international, de l’entrepreneuriat et de l’impact social.", experience: "Expérience sélectionnée", allExperience: "Voir tout le parcours", impact: "Initiatives à impact", allImpact: "Découvrir les initiatives", finalTitle: "Construisons des opportunités qui comptent.", finalDesc: "Ouvert aux échanges autour du développement, de l’entrepreneuriat, de la jeunesse et de l’inclusion.", contact: "Me contacter" }
+    : { snapshot: "Professional snapshot", title: "Capabilities in service of action.", desc: "A profile at the intersection of international development, entrepreneurship, and social impact.", experience: "Selected experience", allExperience: "View full experience", impact: "Impact initiatives", allImpact: "Discover the initiatives", finalTitle: "Let’s build opportunities that matter.", finalDesc: "Open to conversations around development, entrepreneurship, youth, and inclusion.", contact: "Get in touch" };
 
-  return (
-    <div className="min-h-screen bg-white text-slate-950">
-      <Navbar lang={lang} setLang={setLang} />
-      <Hero lang={lang} />
-      <About lang={lang} />
-      <Education lang={lang} />
-      <Experience lang={lang} />
-      <Skills lang={lang} />
-      <Achievements lang={lang} />
-      <Projects lang={lang} />
-      <Testimonials lang={lang} />
-      <Contact lang={lang} />
-      <Footer lang={lang} />
-    </div>
-  );
+  return <>
+    <Hero lang={lang} />
+    <section className="bg-white px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><p className="section-kicker"><Compass size={16} />{L.snapshot}</p><div className="mt-4 flex flex-col justify-between gap-5 md:flex-row md:items-end"><div className="max-w-2xl"><h2 className="section-title">{L.title}</h2><p className="mt-4 text-base leading-7 text-slate-600">{L.desc}</p></div><a href="/expertise" className="inline-flex w-fit items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition hover:border-blue-600 hover:text-blue-600">{lang === "fr" ? "Explorer l’expertise" : "Explore expertise"}<ArrowRight size={17} /></a></div><div className="mt-12"><Skills lang={lang} showHeader={false} /></div></div></section>
+    <section className="bg-slate-50 px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="section-kicker"><BriefcaseBusiness size={16} />{L.experience}</p><h2 className="section-title mt-4">{lang === "fr" ? "Une expérience qui crée de la crédibilité." : "Experience that builds credibility."}</h2></div><a href="/experience" className="inline-flex w-fit items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">{L.allExperience}<ArrowRight size={17} /></a></div><div className="mt-12"><Experience lang={lang} limit={3} showHeader={false} /></div></div></section>
+    <section className="bg-white px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="section-kicker"><Lightbulb size={16} />{L.impact}</p><h2 className="section-title mt-4">{lang === "fr" ? "Le leadership au-delà des rôles." : "Leadership beyond the roles."}</h2></div><a href="/impact" className="inline-flex w-fit items-center gap-2 rounded-lg border border-orange-200 bg-white px-5 py-3 text-sm font-bold text-orange-600 transition hover:bg-orange-500 hover:text-white">{L.allImpact}<ArrowRight size={17} /></a></div><div className="mt-12"><Projects lang={lang} showHeader={false} /></div></div></section>
+    <section className="bg-slate-950 px-5 py-24 text-white lg:px-8"><div className="mx-auto max-w-4xl text-center"><p className="section-kicker bg-white/10 text-blue-200">{lang === "fr" ? "Connexion" : "Connection"}</p><h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">{L.finalTitle}</h2><p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">{L.finalDesc}</p><a href="/contact" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white transition hover:bg-orange-600">{L.contact}<ArrowRight size={18} /></a></div></section>
+  </>;
 }

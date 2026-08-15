@@ -1,39 +1,29 @@
-import { ArrowDown, Download, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowDown, Mail, MapPin } from "lucide-react";
 
 export default function Hero({ lang }) {
   const L = {
     fr: {
-      eyebrow: "Relations internationales • Développement • Leadership",
+      eyebrow: "Développement international • Impact social • Entrepreneuriat",
       title: "Julien Zigabe",
-      headline: "Jeune professionnel engagé pour des solutions à impact global.",
-      body: "Étudiant en relations internationales à USIU-Africa, consultant et facilitateur auprès d'organisations internationales, de programmes de jeunesse et d'initiatives d'innovation sociale en Afrique.",
-      contact: "Me contacter",
-      cv: "Télécharger CV",
-      scroll: "Explorer le profil",
+      headline: "Créer des opportunités inclusives par l’entrepreneuriat, le leadership et l’action communautaire.",
+      body: "Professionnel du développement international et de l’impact social, j’accompagne des jeunes, entrepreneurs et communautés à travers le conseil, la formation et des initiatives orientées vers l’action.",
+      explore: "Explorer mon expérience",
+      contact: "Échanger",
+      scroll: "Découvrir mon approche",
       location: "Basé à Nairobi, Kenya",
-      availability: "Disponible pour recherche, conseil et programmes d'impact",
-      stats: [
-        ["7+", "années d'engagement"],
-        ["10+", "missions & programmes"],
-        ["4", "langues de travail"],
-      ],
+      availability: "Conseil • formation • programmes à impact",
       badges: ["YALI Fellow", "ILO Trainer", "UNICEF Consultant", "Startup Mentor"],
     },
     en: {
-      eyebrow: "International Relations • Development • Leadership",
+      eyebrow: "International Development • Social Impact • Entrepreneurship",
       title: "Julien Zigabe",
-      headline: "A young professional shaping solutions for global impact.",
-      body: "International Relations student at USIU-Africa, consultant, and facilitator working across international organizations, youth programs, and social innovation initiatives in Africa.",
-      contact: "Contact me",
-      cv: "Download CV",
-      scroll: "Explore profile",
+      headline: "Creating inclusive opportunities through entrepreneurship, leadership, and community action.",
+      body: "An international development and social impact professional supporting youth, entrepreneurs, and communities through consulting, training, and action-oriented initiatives.",
+      explore: "Explore my experience",
+      contact: "Let's connect",
+      scroll: "Discover my approach",
       location: "Based in Nairobi, Kenya",
-      availability: "Available for research, consulting, and impact programs",
-      stats: [
-        ["7+", "years of engagement"],
-        ["10+", "roles & programs"],
-        ["4", "working languages"],
-      ],
+      availability: "Consulting • training • impact programs",
       badges: ["YALI Fellow", "ILO Trainer", "UNICEF Consultant", "Startup Mentor"],
     },
   }[lang];
@@ -62,21 +52,18 @@ export default function Hero({ lang }) {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#contact"
+              href="#experience"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
+              <ArrowDown size={18} />
+              {L.explore}
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-orange-200 bg-white px-6 py-3 text-sm font-semibold text-orange-600 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
             >
               <Mail size={18} />
               {L.contact}
-            </a>
-            <a
-              href="/JULIEN ZIG CV.pdf"
-              download="Julien-Zigabe-CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-orange-200 bg-white px-6 py-3 text-sm font-semibold text-orange-600 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-500 hover:bg-orange-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-            >
-              <Download size={18} />
-              {L.cv}
             </a>
           </div>
 
@@ -91,19 +78,6 @@ export default function Hero({ lang }) {
             ))}
           </div>
 
-          <div className="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-            {L.stats.map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-lg border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur"
-              >
-                <p className="text-2xl font-black text-slate-950">{value}</p>
-                <p className="mt-1 text-xs font-medium leading-5 text-slate-500">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="relative mx-auto w-full max-w-md animate-fade-in lg:max-w-lg">

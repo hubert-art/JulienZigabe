@@ -9,64 +9,64 @@ import {
 } from "lucide-react";
 import { createElement } from "react";
 
-export default function Skills({ lang }) {
+export default function Skills({ lang, showHeader = true }) {
   const L = {
     fr: {
-      label: "Boîte à outils",
-      title: "Compétences",
+      label: "Domaines de contribution",
+      title: "Expertise ancrée dans la pratique",
       subtitle:
-        "Des compétences transversales adaptées aux environnements internationaux, aux programmes de terrain et aux équipes multiculturelles.",
+        "Des domaines de travail développés au contact des programmes de développement, des entrepreneurs, des jeunes et des communautés.",
       groups: [
         {
-          title: "Relations internationales",
+          title: "Développement international",
           icon: Languages,
-          skills: ["Analyse politique", "Diplomatie", "Recherche", "Communication interculturelle"],
+          skills: ["Programmes communautaires", "Développement inclusif", "Contextes multiculturels", "Mise en œuvre terrain"],
         },
         {
-          title: "Leadership & programmes",
+          title: "Entrepreneuriat & développement d’activité",
           icon: Target,
-          skills: ["Gestion de projets", "Coordination d'équipes", "Suivi d'activités", "Facilitation"],
+          skills: ["Renforcement d’entreprise", "Planification", "Préparation au marché", "Croissance durable"],
         },
         {
-          title: "Innovation sociale",
+          title: "Jeunesse, leadership & innovation sociale",
           icon: Lightbulb,
-          skills: ["Design thinking", "Entrepreneuriat", "Mentorat", "Développement communautaire"],
+          skills: ["Idéation", "Résolution de problèmes", "Mentorat", "Initiatives à impact"],
         },
       ],
       cards: [
-        ["Communication", "Transmission claire des idées, écoute active et collaboration professionnelle.", Users],
-        ["Résolution de problèmes", "Analyse stratégique, structuration des défis et recherche de solutions réalistes.", Brain],
-        ["Formation", "Animation d'ateliers pratiques pour des publics divers.", Presentation],
-        ["Rédaction", "Rapports, propositions, notes conceptuelles et documents de programme.", FileText],
+        ["Conseil & accompagnement", "Soutien aux initiatives entrepreneuriales et aux communautés vers des réponses pratiques.", Users],
+        ["Formation & renforcement de capacités", "Sessions pratiques pour entrepreneurs, groupes communautaires et jeunes.", Presentation],
+        ["Inclusion économique", "Éducation financière et compétences économiques inclusives.", FileText],
+        ["Facilitation", "Des espaces structurés pour l’idéation, la résolution de problèmes et l’action.", Brain],
       ],
     },
     en: {
-      label: "Professional Toolkit",
-      title: "Skills",
+      label: "Areas of contribution",
+      title: "Expertise grounded in practice",
       subtitle:
-        "Cross-functional skills suited for international environments, field programs, and multicultural teams.",
+        "Areas of work developed alongside development programs, entrepreneurs, young people, and communities.",
       groups: [
         {
-          title: "International Relations",
+          title: "International Development",
           icon: Languages,
-          skills: ["Political analysis", "Diplomacy", "Research", "Intercultural communication"],
+          skills: ["Community programs", "Inclusive development", "Multicultural settings", "Field implementation"],
         },
         {
-          title: "Leadership & Programs",
+          title: "Business Development & Entrepreneurship",
           icon: Target,
-          skills: ["Project management", "Team coordination", "Activity tracking", "Facilitation"],
+          skills: ["Business strengthening", "Planning", "Market readiness", "Sustainable growth"],
         },
         {
-          title: "Social Innovation",
+          title: "Youth, Leadership & Social Innovation",
           icon: Lightbulb,
-          skills: ["Design thinking", "Entrepreneurship", "Mentorship", "Community development"],
+          skills: ["Ideation", "Problem solving", "Mentorship", "Impact initiatives"],
         },
       ],
       cards: [
-        ["Communication", "Clear idea delivery, active listening, and professional collaboration.", Users],
-        ["Problem Solving", "Strategic analysis, challenge framing, and practical solution design.", Brain],
-        ["Training", "Practical workshop facilitation for diverse audiences.", Presentation],
-        ["Writing", "Reports, proposals, concept notes, and program documents.", FileText],
+        ["Consulting & Advisory", "Supporting entrepreneurial initiatives and communities towards practical responses.", Users],
+        ["Training & Capacity Building", "Practical sessions for entrepreneurs, community groups, and youth.", Presentation],
+        ["Economic Inclusion", "Financial education and inclusive economic skills.", FileText],
+        ["Facilitation", "Structured spaces for ideation, problem solving, and action.", Brain],
       ],
     },
   }[lang];
@@ -74,15 +74,15 @@ export default function Skills({ lang }) {
   return (
     <section id="skills" className="bg-white px-5 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
+        <div className={`grid gap-10 lg:items-end ${showHeader ? "lg:grid-cols-[0.8fr_1.2fr]" : ""}`}>
+          {showHeader && <div>
             <p className="section-kicker">
               <Brain size={16} />
               {L.label}
             </p>
             <h2 className="section-title mt-4">{L.title}</h2>
             <p className="mt-4 text-base leading-7 text-slate-600">{L.subtitle}</p>
-          </div>
+          </div>}
 
           <div className="grid gap-4 sm:grid-cols-2">
             {L.cards.map(([title, desc, Icon]) => (

@@ -15,20 +15,20 @@ export default function About({ lang }) {
       label: "Profil professionnel",
       title: "À propos",
       intro:
-        "Julien est un étudiant en relations internationales et jeune professionnel orienté impact.   Mon parcours relie diplomatie, développement communautaire, entrepreneuriat social et formation pratique pour accompagner des jeunes, des réfugiés et des entrepreneurs émergents.",
-      objectiveTitle: "Objectif de carrière",
+        "Julien travaille à l’intersection du développement international, de l’entrepreneuriat et de l’impact social. Son parcours relie conseil, renforcement de capacités et leadership d’initiatives pour faire émerger des opportunités concrètes pour les jeunes, les entrepreneurs et les communautés.",
+      objectiveTitle: "Mon approche",
       objective:
-        "Contribuer à des programmes internationaux exigeants où l'analyse, la facilitation et le leadership servent des solutions durables pour les communautés.",
+        "Relier les idées à leur mise en œuvre : écouter les réalités du terrain, structurer des réponses pratiques et renforcer les capacités qui soutiennent une autonomie durable.",
       focusTitle: "Axes d'impact",
       focus: [
         "Développement communautaire et inclusion des jeunes",
         "Renforcement des capacités entrepreneuriales",
-        "Recherche, communication et innovation sociale",
+        "Innovation sociale et initiatives communautaires",
       ],
       contact: "Contact direct",
       details: [
         ["Nationalité", "Congolaise"],
-        ["Statut", "Étudiant en relations internationales"],
+        ["Formation", "Relations internationales, USIU-Africa"],
         ["Basé à", "Nairobi, Kenya"],
       ],
       languages: "Anglais • Français • Swahili • Lingala",
@@ -38,20 +38,20 @@ export default function About({ lang }) {
       label: "Professional Profile",
       title: "About",
       intro:
-        "Julien is an International Relations student and impact-driven young professional. My work connects diplomacy, community development, social entrepreneurship, and practical training to support youth, refugees, and emerging entrepreneurs.",
-      objectiveTitle: "Career Objective",
+        "Julien works at the intersection of international development, entrepreneurship, and social impact. His path brings together consulting, capacity building, and initiative leadership to create practical opportunities for youth, entrepreneurs, and communities.",
+      objectiveTitle: "My approach",
       objective:
-        "To contribute to demanding international programs where analysis, facilitation, and leadership help deliver sustainable solutions for communities.",
+        "Connecting ideas to implementation: listening to realities on the ground, structuring practical responses, and strengthening the capabilities that support lasting independence.",
       focusTitle: "Impact Focus",
       focus: [
         "Community development and youth inclusion",
         "Entrepreneurial capacity strengthening",
-        "Research, communication, and social innovation",
+        "Social innovation and community initiatives",
       ],
       contact: "Direct contact",
       details: [
         ["Nationality", "Congolese"],
-        ["Status", "International Relations student"],
+        ["Academic foundation", "International Relations, USIU-Africa"],
         ["Based in", "Nairobi, Kenya"],
       ],
       languages: "English • French • Swahili • Lingala",

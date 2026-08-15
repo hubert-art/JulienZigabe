@@ -5,13 +5,13 @@ export default function Footer({ lang = "en" }) {
   const L = {
     fr: {
       title: "Julien Zigabe",
-      subtitle: "Relations internationales • Développement • Impact social • Leadership",
+      subtitle: "Développement international • Entrepreneuriat • Impact social",
       top: "Retour en haut",
       rights: "Tous droits réservés.",
     },
     en: {
       title: "Julien Zigabe",
-      subtitle: "International Relations • Development • Social Impact • Leadership",
+      subtitle: "International Development • Entrepreneurship • Social Impact",
       top: "Back to top",
       rights: "All rights reserved.",
     },
