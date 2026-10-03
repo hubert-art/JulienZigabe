@@ -1,0 +1,785 @@
+Delivered-To: lubulahubert@gmail.com
+Received: by 2002:a05:6402:2022:b0:6ae:2295:b53d with SMTP id ay2csp260902edb;
+        Fri, 2 Oct 2026 00:46:54 -0700 (PDT)
+X-Received: by 2002:a05:690c:dc8:b0:893:cf3a:f84d with SMTP id 00721157ae682-8ae39bbdb2emr9345537b3.24.1790927213962;
+        Fri, 02 Oct 2026 00:46:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1790927213; cv=pass;
+        d=google.com; s=arc-20260327;
+        b=qHm5WK7lr7cPzHALDvNz9BI954YXAtrh0Y1L9qez+EPMEP/biM6MMVzEsqzhNEt+oI
+         y3V/ofgz6JduAtAjRxGjyxCn54EP359lObX6iRPbkG8iAMRFnYvhJCyxRyVt/4CrnsQQ
+         5Q5xCSWG4V/XV/gjkuYPMHfY7zW/PDotbkL8woq/AYe6m9jsSFoX79fgvM2DCpsrZ3UL
+         yyO/97br02XtsQmUNnUVXvkwp2u+odB26NfttPkGqWPjCaOIggiAt6Yp2TAec2jS89yW
+         8aieLIxajlBT8ZG7yvVL+PKxiUKjP7kaEiZW2AS/Unpo5EeSNAKFwylN6m26FeAuIN8P
+         4V7g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=tBsIdqS5x5AyaRfpoWYfbc4TMD6EcRzGx5S8BZHK0f0=;
+        fh=1pUkor/ERx9mvsXeVPtgj1C99RNH0967qqd3nX6UxPk=;
+        b=C9X5n+9H3Q2OTvJvymB7cRG/yqth9mKp8R7lnjADIRArvibWbZFqp1QGztT3ZgiiRX
+         CxP3ag9nDu/e4NPTO5beKPtIYQntO10c4zPWzQhiIW2o26CuOOCorCnabL22NxzPQYOh
+         ruE+BFrb4y4iTQJ0J9FUAxg/tl4S3vQfuVC1cSk8KpcYj4TTUt8yPkYRVVpb+FrihX2t
+         /60/oZdvJSPcsxQIhX3MWp/gM1T3PrNHxBnalejBMahysaSGiJVpJoCtb4eNR37WCjMB
+         F28XEMQQY4kGs8suoNgZXQ+bFg0fyef//Qq2KDX3EyEpYO/rO9HjFTcwf9pa30vYW6te
+         omiA==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=NEO1K1sL;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of julienzigabe10@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=julienzigabe10@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <julienzigabe10@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-8ae2e9285a8sor13337407b3.0.2026.10.02.00.46.53
+        for <lubulahubert@gmail.com>
+        (Google Transport Security);
+        Fri, 02 Oct 2026 00:46:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of julienzigabe10@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20251104 header.b=NEO1K1sL;
+       arc=pass (i=1);
+       spf=pass (google.com: domain of julienzigabe10@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=julienzigabe10@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1790927213; cv=none;
+        d=google.com; s=arc-20260327;
+        b=i1x0mPGJdWaIcf/WJ866QTxB/tIDI9M3GGfFt1AA5KGT3sGAFg1CTEANdj6wDLnDHx
+         5Zt8gRW1WjpDhRQwiPiaEXL61HtYg75uiiFWVEeXbD9N4582CU92ScfxFN6Ctj0G83Ot
+         byRzMnkBcUphgYkqFODduwHU/aZhDsWuk/LW/Uw9QH8zyBoqMuIdbA9yPDMaqA4UP/mt
+         7KEqrgoDXgE+xvpoy/0x7b9SrMTOikDsbgRPyBrBhdCVa+dISmKoZaHuGvN32xebbbVU
+         Ojmej9gRUc4BDKBM6pgXJnt5fKl8FALpBmlRx00haiE7ypk9GMwqy0aoUQjv2yabE2qs
+         5iOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=tBsIdqS5x5AyaRfpoWYfbc4TMD6EcRzGx5S8BZHK0f0=;
+        fh=1pUkor/ERx9mvsXeVPtgj1C99RNH0967qqd3nX6UxPk=;
+        b=Xoj/2jHKqjuUn3jjo6kvjjS+BKLjQrdYlzr1mPkZhNMm7E2MqfPPfkezHKNnjnE6jS
+         6HskkpaUFsJ/tFK/qPZvC0BX1c4jLtVN8YZMIjSwN3kJY2KJ2GCO4cgP1moZyxKwVdnM
+         B8LgaWifdd9DhhX/pv5HHi6QXI40X1It2msSW+IK4yUS3zmwLTwIvZGcZvK7q2bnBimt
+         2+6GTqVePRsCDA7dqgeYy9kDEeplxPn13Jr1Mcr6rIvgK/1udcRF30tl+7oB9qzjVN51
+         nPli97pmchX1j4qnDLFqG/snIG5VLJMcgN5ceeQryvZMypmV+lZ+m0wuxjbcyac1HvPH
+         3S0Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1790927213; x=1791532013; dara=google.com;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=tBsIdqS5x5AyaRfpoWYfbc4TMD6EcRzGx5S8BZHK0f0=;
+        b=NEO1K1sLC3DChevh3MMeSo8thBkimNgvfX2sJPHoPAG1SpWwN58Ypb/mTCfihuJjI9
+         EaomeaRWCXOGZl5qd4rHEgqY5jAHYfykNboMPZqVoYZTJyH17NCMC4aCB8kPTFv0dy/H
+         ePmc9XlbKrbOP2cRTaBRcrqPoeGcRtAZN+nK3Ltlj84/HHo31IXLOmVuqckIdCLb4baQ
+         NDGJibcQYx/5IksAIirtNu4FAVVepqYOMyJuZpEPt3H/oSdoFWk4NZz5kY9ANkcVzirh
+         i+cnoPt6krrY7fbonpyv1U/21ym0tpycimXtHWHpqwjO0GSvPPU63VkdNev5xsz9W+Cy
+         2rZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1790927213; x=1791532013;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tBsIdqS5x5AyaRfpoWYfbc4TMD6EcRzGx5S8BZHK0f0=;
+        b=LDwkpPVwPeGM23lUMhRdVK2YNSUdgNPsHgFJsLXDEiANj6R+qW6KXDbl/gysAIsrk0
+         j2Nj+EZs+RgXFv3u/0i0QbjWhCEt+DuEnSfcbl21F8X5/S6ETEeW8ZuS0T9wcHd2LFUp
+         wEwORJ/++gn4Y6x0TG6EmTtMHWXfALsDqG7UfKlJepX82Lq4SL9E2bIl/foT0lEMx8mS
+         rty8ThYxBJlnkzaVye31MIgUsVVOzpaIHfU3MoVGu9e5q8Vhcwn5fyx73k2ABI8beU4B
+         EujAc9iGOwSakFz/6l0dQ5TSLo9+QQm5oE1Sd29468QbGdIMBQtiZGJaqaMdoeUhyaUQ
+         zkmA==
+X-Gm-Message-State: AFq9FYLdZ+9TWYAKKi2PMUwmS/eqjSLpb+6EyRAwobL/zk9kjxfnAUsg
+	YnJFS4Nv48m+3OOzN4YXYwSzGiRrj0zr5AUMApcbEYG7xHFcsRFx7g4NORGaGvjObaANbvUKYWb
+	+boBk7dIqOD/AjKg6vAnH2kMToq37/M3/YqKw
+X-Gm-Gg: AYBFou0giU+rwuJIxRVWVmPvODJUIELle2DrTDv0n/wUQzngDLJhqrVTVdx64P/BcKh
+	gwj/1liTRxW++16Ro8ZOSDZJt2Wf3mB0mtX0rF/aKf/i7Wnse9b/v1L0L2eZNx4/uyY47aCbZWN
+	1qKy+SxRflqQLrs4+bgPpygXJBBJl+MFKdgArhvnaSexKZhxhL26AyG0V1NqKU19osrULvjMUDL
+	2mn/o3fbrKVVJ02uxoYMMaC8ZUnmmAS3cCTv+96Ix5rgk08+IwGYpPScOfFUfAaDyWwrdPHE5JY
+	CcgKC32EW7DndskUQ8PivGAJmaL7tQfPkFpvFI7OfmqyFgiz9i5nxpCYTCQfSlWdElDTO4tK3BD
+	1X9kgx1VyhA==
+X-Received: by 2002:a05:690c:9990:b0:7db:ccda:a409 with SMTP id
+ 00721157ae682-8ae392b6973mr7006587b3.9.1790927213170; Fri, 02 Oct 2026
+ 00:46:53 -0700 (PDT)
+MIME-Version: 1.0
+From: Julien Zigabe <julienzigabe10@gmail.com>
+Date: Fri, 2 Oct 2026 10:46:14 +0300
+X-Gm-Features: AclHuK9iPySHfN3nJxKy9dF1M25szGU0k3KHaKeU89aagRhD2yqdL2Epc-dKJsM
+Message-ID: <CAAdxZrpKZ=1ZZFQ-7fyeuDCBV24rkkx1BOFWTZwyJFjFWYSYSw@mail.gmail.com>
+Subject: Julien Web Details
+To: lubulahubert@gmail.com
+Content-Type: multipart/mixed; boundary="0000000000005c664e065cd6bc5c"
+
+--0000000000005c664e065cd6bc5c
+Content-Type: multipart/alternative; boundary="0000000000005c664b065cd6bc5a"
+
+--0000000000005c664b065cd6bc5a
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Hubert,
+
+Kindly receive the details as requested.
+ 1.JPG
+<https://drive.google.com/file/d/1ebz4unZwBPJc7zCudtO6fsnXc2_s09G_/view?usp=drive_web>
+ 3.jpg
+<https://drive.google.com/file/d/1S2nhwzngmL65x3pBebkVlIU7axCvPz0C/view?usp=drive_web>
+ 4.JPG
+<https://drive.google.com/file/d/1aBGXirgrqkBJEdJ5icy_cXaZBZxxJFmm/view?usp=drive_web>
+ 4A7A0057.jpg
+<https://drive.google.com/file/d/14b6QrPPfvPC4G8ox__fB86Gzk2GZ2Dpl/view?usp=drive_web>
+ 5.JPG
+<https://drive.google.com/file/d/1Jz_dNXqnD0Pe5kMGdGf5W-jGH_f9maiR/view?usp=drive_web>
+ 6.jpeg
+<https://drive.google.com/file/d/12MqpPdp3pz2VC9bS3P_j7yBpL2CDWBnO/view?usp=drive_web>
+ 1777012665101.jpg
+<https://drive.google.com/file/d/1i9iy05T5fWuPW0kHX3hFPWqAj9_RmJRs/view?usp=drive_web>
+ _MG_0411.jpg.jpeg
+<https://drive.google.com/file/d/1H_dTlnRcTOTtjeMU90kntfF_9Daz7s9K/view?usp=drive_web>
+ COG_1089.JPG
+<https://drive.google.com/file/d/1hjSxY-_nmWoNb-CX1WIp6F-tiZmkMVZM/view?usp=drive_web>
+ COG_1710.JPG
+<https://drive.google.com/file/d/1V5eebBWsAf_ou2PwP7HvWHMk1caJRpai/view?usp=drive_web>
+ COG_1719.JPG
+<https://drive.google.com/file/d/14kFOv4-JoerREXtKf7COxPpdDjNHbCbz/view?usp=drive_web>
+ confere.jpg
+<https://drive.google.com/file/d/1quwLuswV3EeB0urJPaVBEV2sNrqhAN4U/view?usp=drive_web>
+ CONFERENCE 2.jpg.jpeg
+<https://drive.google.com/file/d/11u8j6etMLV0M0X3bQ-lPAzG7wdRWBXWM/view?usp=drive_web>
+ G4.jpg
+<https://drive.google.com/file/d/1xFZ9hpusO1u9-kXWtIr-A6wR-HqCm9xr/view?usp=drive_web>
+ IMG_2098.jpg
+<https://drive.google.com/file/d/12EVz4ZEw-t7CQ7QPptTXeQ9Cmo6nos32/view?usp=drive_web>
+ IMG_5650.JPG
+<https://drive.google.com/file/d/1n_b6HYgSYxiSWeLbJLaRSfEU-W5hAPHl/view?usp=drive_web>
+ IMG_5653.JPG
+<https://drive.google.com/file/d/1oeBklkUWrJHyqQIgknPLTGiXPe4zsVP8/view?usp=drive_web>
+ IMG_5730.JPG
+<https://drive.google.com/file/d/1gcDOHxSw9QbODJlz0w74FKyPGYU9lCIm/view?usp=drive_web>
+ IMG_5731.JPG
+<https://drive.google.com/file/d/1xnCXR3AQpZxObRbRso6PSOlmkvrG55lz/view?usp=drive_web>
+ IMG_9944.JPG.jpeg
+<https://drive.google.com/file/d/1eupQMUvcQBwKQIqHDg4ZzhTXusSWmLZd/view?usp=drive_web>
+ INSTA P.jpg
+<https://drive.google.com/file/d/14bfFKiJyYHhQw6UABP4B8IMJ31U9ZZGE/view?usp=drive_web>
+ Julien Zigabe post (6).png
+<https://drive.google.com/file/d/1Ffr85l5VjqEoQwlQMdtSrqY8_hpeBRMz/view?usp=drive_web>
+ MG1.jpeg
+<https://drive.google.com/file/d/1B316wj6mkFEXFxG1H3n3UgHNSLB6H_aL/view?usp=drive_web>
+ MM2.jpg
+<https://drive.google.com/file/d/1PKE--E2u8VreSPCDl_ISX3QT5J__DpP8/view?usp=drive_web>
+ onb.jpeg
+<https://drive.google.com/file/d/1VzqMsFl1ZHCny0fCPVF_nJZ4PcFpr0JR/view?usp=drive_web>
+ Prop.jpeg
+<https://drive.google.com/file/d/1c3qLFli-eNaEHRTThr8dXRLe89HncWy9/view?usp=drive_web>
+ Speak.jpeg
+<https://drive.google.com/file/d/1W1D7X-h8BdzbMJCLJhEAWrHvyI-9uz96/view?usp=drive_web>
+ trandf.JPG
+<https://drive.google.com/file/d/17bTlvk9-ET42ihcVr_4X0tcuIS1xs-9K/view?usp=drive_web>
+
+Julien Zigabe
+ANZISHA IMPACT HUB/ Uganda
+Isingiro District/ Nakivale Refugee Settlement.
+Mob: +256 760 325 737
+WhatsApp: +256 760 325 737
+Anzisha Impact HUB
+<http://www.facebook.com/Anzisha-Impact-HUB-102571215035984>
+Let's Connect <https://www.linkedin.com/in/julienz24/>
+
+--0000000000005c664b065cd6bc5a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Dear Hubert,</div><div><br></div><div>Kindly receive =
+the details as requested.<span style=3D"background-color:transparent"></spa=
+n></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;hei=
+ght:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;p=
+adding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1p=
+x solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/1ebz4u=
+nZwBPJc7zCudtO6fsnXc2_s09G_/view?usp=3Ddrive_web" target=3D"_blank" style=
+=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidde=
+n;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-wid=
+th:medium;border-style:none;border-color:currentcolor" aria-label=3D"1.JPG"=
+><img style=3D"vertical-align: text-bottom; border: none; padding-right: 10=
+px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/ima=
+ges/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-ali=
+gn:bottom">1.JPG</span></a></div><div class=3D"gmail_chip gmail_drive_chip"=
+ style=3D"width:386px;height:20px;max-height:20px;background-color:rgb(245,=
+245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&q=
+uot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https://drive=
+.google.com/file/d/1S2nhwzngmL65x3pBebkVlIU7axCvPz0C/view?usp=3Ddrive_web" =
+target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block;max-wid=
+th:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-dec=
+oration:none;border-width:medium;border-style:none;border-color:currentcolo=
+r" aria-label=3D"3.jpg"><img style=3D"vertical-align: text-bottom; border: =
+none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstat=
+ic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr=
+" style=3D"vertical-align:bottom">3.jpg</span></a></div><div class=3D"gmail=
+_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;ba=
+ckground-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/2=
+0px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><=
+a href=3D"https://drive.google.com/file/d/1aBGXirgrqkBJEdJ5icy_cXaZBZxxJFmm=
+/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);displ=
+ay:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;whit=
+e-space:nowrap;text-decoration:none;border-width:medium;border-style:none;b=
+order-color:currentcolor" aria-label=3D"4.JPG"><img style=3D"vertical-align=
+: text-bottom; border: none; padding-right: 10px; height: 20px;" alt=3D"" s=
+rc=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_list.png"=
+>=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom">4.JPG</span></a></=
+div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;height:=
+20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;paddi=
+ng:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1px so=
+lid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/14b6QrPPfv=
+PC4G8ox__fB86Gzk2GZ2Dpl/view?usp=3Ddrive_web" target=3D"_blank" style=3D"co=
+lor:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidden;text=
+-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-width:med=
+ium;border-style:none;border-color:currentcolor" aria-label=3D"4A7A0057.jpg=
+"><img style=3D"vertical-align: text-bottom; border: none; padding-right: 1=
+0px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/im=
+ages/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-al=
+ign:bottom">4A7A0057.jpg</span></a></div><div class=3D"gmail_chip gmail_dri=
+ve_chip" style=3D"width:386px;height:20px;max-height:20px;background-color:=
+rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Googl=
+e Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https=
+://drive.google.com/file/d/1Jz_dNXqnD0Pe5kMGdGf5W-jGH_f9maiR/view?usp=3Ddri=
+ve_web" target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block=
+;max-width:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;=
+text-decoration:none;border-width:medium;border-style:none;border-color:cur=
+rentcolor" aria-label=3D"5.JPG"><img style=3D"vertical-align: text-bottom; =
+border: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://s=
+sl.gstatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span di=
+r=3D"ltr" style=3D"vertical-align:bottom;text-decoration:none">5.JPG</span>=
+</a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;h=
+eight:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px=
+;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:=
+1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/12Mq=
+pPdp3pz2VC9bS3P_j7yBpL2CDWBnO/view?usp=3Ddrive_web" target=3D"_blank" style=
+=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidde=
+n;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-wid=
+th:medium;border-style:none;border-color:currentcolor" aria-label=3D"6.jpeg=
+"><img style=3D"vertical-align: text-bottom; border: none; padding-right: 1=
+0px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/im=
+ages/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-al=
+ign:bottom;text-decoration:none">6.jpeg</span></a></div><div class=3D"gmail=
+_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;ba=
+ckground-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/2=
+0px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><=
+a href=3D"https://drive.google.com/file/d/1i9iy05T5fWuPW0kHX3hFPWqAj9_RmJRs=
+/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);displ=
+ay:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;whit=
+e-space:nowrap;text-decoration:none;border-width:medium;border-style:none;b=
+order-color:currentcolor" aria-label=3D"1777012665101.jpg"><img style=3D"ve=
+rtical-align: text-bottom; border: none; padding-right: 10px; height: 20px;=
+" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_gener=
+ic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom;text-de=
+coration:none">1777012665101.jpg</span></a></div><div class=3D"gmail_chip g=
+mail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;backgroun=
+d-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &qu=
+ot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=
+=3D"https://drive.google.com/file/d/1H_dTlnRcTOTtjeMU90kntfF_9Daz7s9K/view?=
+usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);display:inl=
+ine-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;white-spac=
+e:nowrap;text-decoration:none;border-width:medium;border-style:none;border-=
+color:currentcolor" aria-label=3D"_MG_0411.jpg.jpeg"><img style=3D"vertical=
+-align: text-bottom; border: none; padding-right: 10px; height: 20px;" alt=
+=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_li=
+st.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom;text-decorat=
+ion:none">_MG_0411.jpg.jpeg</span></a></div><div class=3D"gmail_chip gmail_=
+drive_chip" style=3D"width:386px;height:20px;max-height:20px;background-col=
+or:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Go=
+ogle Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"ht=
+tps://drive.google.com/file/d/1hjSxY-_nmWoNb-CX1WIp6F-tiZmkMVZM/view?usp=3D=
+drive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-bl=
+ock;max-width:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowr=
+ap;text-decoration:none;border-width:medium;border-style:none;border-color:=
+currentcolor" aria-label=3D"COG_1089.JPG"><img style=3D"vertical-align: tex=
+t-bottom; border: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D=
+"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=
+=A0<span dir=3D"ltr" style=3D"vertical-align:bottom">COG_1089.JPG</span></a=
+></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;heig=
+ht:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;pa=
+dding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1px=
+ solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/1V5eebB=
+WsAf_ou2PwP7HvWHMk1caJRpai/view?usp=3Ddrive_web" target=3D"_blank" style=3D=
+"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidden;t=
+ext-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-width:=
+medium;border-style:none;border-color:currentcolor" aria-label=3D"COG_1710.=
+JPG"><img style=3D"vertical-align: text-bottom; border: none; padding-right=
+: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist=
+/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical=
+-align:bottom">COG_1710.JPG</span></a></div><div class=3D"gmail_chip gmail_=
+drive_chip" style=3D"width:386px;height:20px;max-height:20px;background-col=
+or:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Go=
+ogle Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"ht=
+tps://drive.google.com/file/d/14kFOv4-JoerREXtKf7COxPpdDjNHbCbz/view?usp=3D=
+drive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-bl=
+ock;max-width:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowr=
+ap;text-decoration:none;border-width:medium;border-style:none;border-color:=
+currentcolor" aria-label=3D"COG_1719.JPG"><img style=3D"vertical-align: tex=
+t-bottom; border: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D=
+"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=
+=A0<span dir=3D"ltr" style=3D"vertical-align:bottom;text-decoration:none">C=
+OG_1719.JPG</span></a></div><div class=3D"gmail_chip gmail_drive_chip" styl=
+e=3D"width:386px;height:20px;max-height:20px;background-color:rgb(245,245,2=
+45);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,=
+sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https://drive.goog=
+le.com/file/d/1quwLuswV3EeB0urJPaVBEV2sNrqhAN4U/view?usp=3Ddrive_web" targe=
+t=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block;max-width:35=
+6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decorati=
+on:none;border-width:medium;border-style:none;border-color:currentcolor" ar=
+ia-label=3D"confere.jpg"><img style=3D"vertical-align: text-bottom; border:=
+ none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gsta=
+tic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"lt=
+r" style=3D"vertical-align:bottom;text-decoration:none">confere.jpg</span><=
+/a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;he=
+ight:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;=
+padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1=
+px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/11u8j=
+6etMLV0M0X3bQ-lPAzG7wdRWBXWM/view?usp=3Ddrive_web" target=3D"_blank" style=
+=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidde=
+n;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-wid=
+th:medium;border-style:none;border-color:currentcolor" aria-label=3D"CONFER=
+ENCE 2.jpg.jpeg"><img style=3D"vertical-align: text-bottom; border: none; p=
+adding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/=
+docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=
+=3D"vertical-align:bottom;text-decoration:none">CONFERENCE 2.jpg.jpeg</span=
+></a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;=
+height:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0p=
+x;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border=
+:1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/1xF=
+Z9hpusO1u9-kXWtIr-A6wR-HqCm9xr/view?usp=3Ddrive_web" target=3D"_blank" styl=
+e=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidd=
+en;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-wi=
+dth:medium;border-style:none;border-color:currentcolor" aria-label=3D"G4.jp=
+g"><img style=3D"vertical-align: text-bottom; border: none; padding-right: =
+10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/i=
+mages/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-a=
+lign:bottom">G4.jpg</span></a></div><div class=3D"gmail_chip gmail_drive_ch=
+ip" style=3D"width:386px;height:20px;max-height:20px;background-color:rgb(2=
+45,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Google San=
+s&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https://dr=
+ive.google.com/file/d/12EVz4ZEw-t7CQ7QPptTXeQ9Cmo6nos32/view?usp=3Ddrive_we=
+b" target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block;max-=
+width:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-=
+decoration:none;border-width:medium;border-style:none;border-color:currentc=
+olor" aria-label=3D"IMG_2098.jpg"><img style=3D"vertical-align: text-bottom=
+; border: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https:/=
+/ssl.gstatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span =
+dir=3D"ltr" style=3D"vertical-align:bottom;text-decoration:none">IMG_2098.j=
+pg</span></a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"widt=
+h:386px;height:20px;max-height:20px;background-color:rgb(245,245,245);margi=
+n:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-seri=
+f;border:1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/fi=
+le/d/1n_b6HYgSYxiSWeLbJLaRSfEU-W5hAPHl/view?usp=3Ddrive_web" target=3D"_bla=
+nk" style=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overf=
+low:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;b=
+order-width:medium;border-style:none;border-color:currentcolor" aria-label=
+=3D"IMG_5650.JPG"><img style=3D"vertical-align: text-bottom; border: none; =
+padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com=
+/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" styl=
+e=3D"vertical-align:bottom">IMG_5650.JPG</span></a></div><div class=3D"gmai=
+l_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;b=
+ackground-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/=
+20px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)">=
+<a href=3D"https://drive.google.com/file/d/1oeBklkUWrJHyqQIgknPLTGiXPe4zsVP=
+8/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);disp=
+lay:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;whi=
+te-space:nowrap;text-decoration:none;border-width:medium;border-style:none;=
+border-color:currentcolor" aria-label=3D"IMG_5653.JPG"><img style=3D"vertic=
+al-align: text-bottom; border: none; padding-right: 10px; height: 20px;" al=
+t=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_l=
+ist.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom">IMG_5653.J=
+PG</span></a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"widt=
+h:386px;height:20px;max-height:20px;background-color:rgb(245,245,245);margi=
+n:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-seri=
+f;border:1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/fi=
+le/d/1gcDOHxSw9QbODJlz0w74FKyPGYU9lCIm/view?usp=3Ddrive_web" target=3D"_bla=
+nk" style=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overf=
+low:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;b=
+order-width:medium;border-style:none;border-color:currentcolor" aria-label=
+=3D"IMG_5730.JPG"><img style=3D"vertical-align: text-bottom; border: none; =
+padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com=
+/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" styl=
+e=3D"vertical-align:bottom;text-decoration:none">IMG_5730.JPG</span></a></d=
+iv><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;height:2=
+0px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;paddin=
+g:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1px sol=
+id rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/1xnCXR3AQpZ=
+xObRbRso6PSOlmkvrG55lz/view?usp=3Ddrive_web" target=3D"_blank" style=3D"col=
+or:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidden;text-=
+overflow:ellipsis;white-space:nowrap;text-decoration:none;border-width:medi=
+um;border-style:none;border-color:currentcolor" aria-label=3D"IMG_5731.JPG"=
+><img style=3D"vertical-align: text-bottom; border: none; padding-right: 10=
+px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/ima=
+ges/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-ali=
+gn:bottom;text-decoration:none">IMG_5731.JPG</span></a></div><div class=3D"=
+gmail_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20=
+px;background-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 1=
+4px/20px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,22=
+1)"><a href=3D"https://drive.google.com/file/d/1eupQMUvcQBwKQIqHDg4ZzhTXusS=
+WmLZd/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);=
+display:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis=
+;white-space:nowrap;text-decoration:none;border-width:medium;border-style:n=
+one;border-color:currentcolor" aria-label=3D"IMG_9944.JPG.jpeg"><img style=
+=3D"vertical-align: text-bottom; border: none; padding-right: 10px; height:=
+ 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10=
+_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom">=
+IMG_9944.JPG.jpeg</span></a></div><div class=3D"gmail_chip gmail_drive_chip=
+" style=3D"width:386px;height:20px;max-height:20px;background-color:rgb(245=
+,245,245);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&=
+quot;,sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https://driv=
+e.google.com/file/d/14bfFKiJyYHhQw6UABP4B8IMJ31U9ZZGE/view?usp=3Ddrive_web"=
+ target=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block;max-wi=
+dth:356px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-de=
+coration:none;border-width:medium;border-style:none;border-color:currentcol=
+or" aria-label=3D"INSTA P.jpg"><img style=3D"vertical-align: text-bottom; b=
+order: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ss=
+l.gstatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=
+=3D"ltr" style=3D"vertical-align:bottom;text-decoration:none">INSTA P.jpg</=
+span></a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:38=
+6px;height:20px;max-height:20px;background-color:rgb(245,245,245);margin:6p=
+x 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;bo=
+rder:1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d=
+/1Ffr85l5VjqEoQwlQMdtSrqY8_hpeBRMz/view?usp=3Ddrive_web" target=3D"_blank" =
+style=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:=
+hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;borde=
+r-width:medium;border-style:none;border-color:currentcolor" aria-label=3D"J=
+ulien Zigabe post (6).png"><img style=3D"vertical-align: text-bottom; borde=
+r: none; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gs=
+tatic.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"=
+ltr" style=3D"vertical-align:bottom">Julien Zigabe post (6).png</span></a><=
+/div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;height=
+:20px;max-height:20px;background-color:rgb(245,245,245);margin:6px 0px;padd=
+ing:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1px s=
+olid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d/1B316wj6m=
+kFEXFxG1H3n3UgHNSLB6H_aL/view?usp=3Ddrive_web" target=3D"_blank" style=3D"c=
+olor:rgb(32,33,36);display:inline-block;max-width:356px;overflow:hidden;tex=
+t-overflow:ellipsis;white-space:nowrap;text-decoration:none;border-width:me=
+dium;border-style:none;border-color:currentcolor" aria-label=3D"MG1.jpeg"><=
+img style=3D"vertical-align: text-bottom; border: none; padding-right: 10px=
+; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/image=
+s/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align=
+:bottom;text-decoration:none">MG1.jpeg</span></a></div><div class=3D"gmail_=
+chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;bac=
+kground-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/20=
+px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)"><a=
+ href=3D"https://drive.google.com/file/d/1PKE--E2u8VreSPCDl_ISX3QT5J__DpP8/=
+view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);displa=
+y:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;white=
+-space:nowrap;text-decoration:none;border-width:medium;border-style:none;bo=
+rder-color:currentcolor" aria-label=3D"MM2.jpg"><img style=3D"vertical-alig=
+n: text-bottom; border: none; padding-right: 10px; height: 20px;" alt=3D"" =
+src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_list.png=
+">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom;text-decoration:no=
+ne">MM2.jpg</span></a></div><div class=3D"gmail_chip gmail_drive_chip" styl=
+e=3D"width:386px;height:20px;max-height:20px;background-color:rgb(245,245,2=
+45);margin:6px 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,=
+sans-serif;border:1px solid rgb(221,221,221)"><a href=3D"https://drive.goog=
+le.com/file/d/1VzqMsFl1ZHCny0fCPVF_nJZ4PcFpr0JR/view?usp=3Ddrive_web" targe=
+t=3D"_blank" style=3D"color:rgb(32,33,36);display:inline-block;max-width:35=
+6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decorati=
+on:none;border-width:medium;border-style:none;border-color:currentcolor" ar=
+ia-label=3D"onb.jpeg"><img style=3D"vertical-align: text-bottom; border: no=
+ne; padding-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic=
+.com/docs/doclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" =
+style=3D"vertical-align:bottom">onb.jpeg</span></a></div><div class=3D"gmai=
+l_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-height:20px;b=
+ackground-color:rgb(245,245,245);margin:6px 0px;padding:10px;font:400 14px/=
+20px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(221,221,221)">=
+<a href=3D"https://drive.google.com/file/d/1c3qLFli-eNaEHRTThr8dXRLe89HncWy=
+9/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32,33,36);disp=
+lay:inline-block;max-width:356px;overflow:hidden;text-overflow:ellipsis;whi=
+te-space:nowrap;text-decoration:none;border-width:medium;border-style:none;=
+border-color:currentcolor" aria-label=3D"Prop.jpeg"><img style=3D"vertical-=
+align: text-bottom; border: none; padding-right: 10px; height: 20px;" alt=
+=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10_generic_li=
+st.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom">Prop.jpeg</=
+span></a></div><div class=3D"gmail_chip gmail_drive_chip" style=3D"width:38=
+6px;height:20px;max-height:20px;background-color:rgb(245,245,245);margin:6p=
+x 0px;padding:10px;font:400 14px/20px &quot;Google Sans&quot;,sans-serif;bo=
+rder:1px solid rgb(221,221,221)"><a href=3D"https://drive.google.com/file/d=
+/1W1D7X-h8BdzbMJCLJhEAWrHvyI-9uz96/view?usp=3Ddrive_web" target=3D"_blank" =
+style=3D"color:rgb(32,33,36);display:inline-block;max-width:356px;overflow:=
+hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none;borde=
+r-width:medium;border-style:none;border-color:currentcolor" aria-label=3D"S=
+peak.jpeg"><img style=3D"vertical-align: text-bottom; border: none; padding=
+-right: 10px; height: 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/d=
+oclist/images/icon_10_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"ve=
+rtical-align:bottom;text-decoration:none">Speak.jpeg</span></a></div><div c=
+lass=3D"gmail_chip gmail_drive_chip" style=3D"width:386px;height:20px;max-h=
+eight:20px;background-color:rgb(245,245,245);margin:6px 0px;padding:10px;fo=
+nt:400 14px/20px &quot;Google Sans&quot;,sans-serif;border:1px solid rgb(22=
+1,221,221)"><a href=3D"https://drive.google.com/file/d/17bTlvk9-ET42ihcVr_4=
+X0tcuIS1xs-9K/view?usp=3Ddrive_web" target=3D"_blank" style=3D"color:rgb(32=
+,33,36);display:inline-block;max-width:356px;overflow:hidden;text-overflow:=
+ellipsis;white-space:nowrap;text-decoration:none;border-width:medium;border=
+-style:none;border-color:currentcolor" aria-label=3D"trandf.JPG"><img style=
+=3D"vertical-align: text-bottom; border: none; padding-right: 10px; height:=
+ 20px;" alt=3D"" src=3D"https://ssl.gstatic.com/docs/doclist/images/icon_10=
+_generic_list.png">=C2=A0<span dir=3D"ltr" style=3D"vertical-align:bottom;t=
+ext-decoration:none">trandf.JPG</span></a></div><div><br></div><div><div di=
+r=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div=
+ dir=3D"ltr">Julien Zigabe<div>ANZISHA IMPACT HUB/ Uganda</div><div>Isingir=
+o District/ Nakivale Refugee Settlement.</div><div>Mob: +256 760 325 737</d=
+iv><div>WhatsApp: +256 760 325 737</div><div><a href=3D"http://www.facebook=
+.com/Anzisha-Impact-HUB-102571215035984" target=3D"_blank">Anzisha Impact H=
+UB</a>=C2=A0=C2=A0 =C2=A0 =C2=A0</div><div><a href=3D"https://www.linkedin.=
+com/in/julienz24/" target=3D"_blank">Let&#39;s Connect</a>=C2=A0=C2=A0</div=
+><div><br></div><div><br></div><div>=C2=A0=C2=A0<img width=3D"420" height=
+=3D"105" src=3D"https://ci3.googleusercontent.com/mail-sig/AIorK4wQh9lNLx2P=
+3mbzBPhpKM8r3BFKrf0t33xGbywWvr5vU_blFGWOeddudhyKPbmolRpruyy5gaA"><br></div>=
+<div><br></div></div></div></div></div>
+
+--0000000000005c664b065cd6bc5a--
+--0000000000005c664e065cd6bc5c
+Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document; 
+	name="Who is Julien Zigabe.docx"
+Content-Disposition: attachment; filename="Who is Julien Zigabe.docx"
+Content-Transfer-Encoding: base64
+Content-ID: <f_muqnoa800>
+X-Attachment-Id: f_muqnoa800
+
+UEsDBBQABgAIAAAAIQDfpNJsWgEAACAFAAATAAgCW0NvbnRlbnRfVHlwZXNdLnhtbCCiBAIooAAC
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0
+lMtuwjAQRfeV+g+Rt1Vi6KKqKgKLPpYtUukHGHsCVv2Sx7z+vhMCUVUBkQpsIiUz994zVsaD0dqa
+bAkRtXcl6xc9loGTXmk3K9nX5C1/ZBkm4ZQw3kHJNoBsNLy9GUw2ATAjtcOSzVMKT5yjnIMVWPgA
+jiqVj1Ykeo0zHoT8FjPg973eA5feJXApT7UHGw5eoBILk7LXNX1uSCIYZNlz01hnlUyEYLQUiep8
+6dSflHyXUJBy24NzHfCOGhg/mFBXjgfsdB90NFEryMYipndhqYuvfFRcebmwpCxO2xzg9FWlJbT6
+2i1ELwGRztyaoq1Yod2e/ygHpo0BvDxF49sdDymR4BoAO+dOhBVMP69G8cu8E6Si3ImYGrg8Rmvd
+CZFoA6F59s/m2NqciqTOcfQBaaPjP8ber2ytzmngADHp039dm0jWZ88H9W2gQB3I5tv7bfgDAAD/
+/wMAUEsDBBQABgAIAAAAIQAekRq37wAAAE4CAAALAAgCX3JlbHMvLnJlbHMgogQCKKAAAgAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArJLBasMw
+DEDvg/2D0b1R2sEYo04vY9DbGNkHCFtJTBPb2GrX/v082NgCXelhR8vS05PQenOcRnXglF3wGpZV
+DYq9Cdb5XsNb+7x4AJWFvKUxeNZw4gyb5vZm/cojSSnKg4tZFYrPGgaR+IiYzcAT5SpE9uWnC2ki
+Kc/UYySzo55xVdf3mH4zoJkx1dZqSFt7B6o9Rb6GHbrOGX4KZj+xlzMtkI/C3rJdxFTqk7gyjWop
+9SwabDAvJZyRYqwKGvC80ep6o7+nxYmFLAmhCYkv+3xmXBJa/ueK5hk/Nu8hWbRf4W8bnF1B8wEA
+AP//AwBQSwMEFAAGAAgAAAAhANZks1H0AAAAMQMAABwACAF3b3JkL19yZWxzL2RvY3VtZW50Lnht
+bC5yZWxzIKIEASigAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+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
+--0000000000005c664e065cd6bc5c--

@@ -93,12 +93,8 @@ export default function Contact({ lang }) {
                 julienzigabe10@gmail.com
               </a>
               <p className="flex items-center gap-3">
-                <Phone size={17} className="text-orange-400" />
-                +254 119 526 770 / +256 760 325 737
-              </p>
-              <p className="flex items-center gap-3">
                 <MapPin size={17} className="text-orange-400" />
-                Nairobi, Kenya
+                Isingiro District, Nakivale Refugee Settlement, Uganda
               </p>
             </div>
             <p className="mt-6 rounded-lg bg-white/10 p-4 text-sm leading-6 text-slate-200">

@@ -11,7 +11,7 @@ export default function PageHeader({ label, title, description }) {
           <span className="text-slate-600">{label}</span>
         </div>
         <p className="section-kicker mt-7">{label}</p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[1.04] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+        <h1 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.12] tracking-tight text-slate-950 sm:text-4xl lg:text-[2.6rem]">
           {title}
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{description}</p>

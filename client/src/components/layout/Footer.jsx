@@ -1,61 +1,6 @@
-import { ArrowUp, ExternalLink, Mail } from "lucide-react";
+import { ArrowUp, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 export default function Footer({ lang = "en" }) {
-  const year = new Date().getFullYear();
-  const L = {
-    fr: {
-      title: "Julien Zigabe",
-      subtitle: "Développement international • Entrepreneuriat • Impact social",
-      top: "Retour en haut",
-      rights: "Tous droits réservés.",
-    },
-    en: {
-      title: "Julien Zigabe",
-      subtitle: "International Development • Entrepreneurship • Social Impact",
-      top: "Back to top",
-      rights: "All rights reserved.",
-    },
-  }[lang];
-
-  return (
-    <footer className="bg-slate-950 px-5 pt-16 text-white lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 pb-12 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h2 className="text-2xl font-black tracking-tight">{L.title}</h2>
-          <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">{L.subtitle}</p>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="mailto:julienzigabe10@gmail.com"
-            className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-slate-200 transition hover:bg-blue-600 hover:text-white"
-            aria-label="Email Julien Zigabe"
-          >
-            <Mail size={18} />
-          </a>
-          <a
-            href="https://linkedin.com/in/julienz24"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-slate-200 transition hover:bg-blue-600 hover:text-white"
-            aria-label="LinkedIn profile"
-          >
-            <ExternalLink size={18} />
-          </a>
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-orange-500 hover:text-white"
-          >
-            {L.top}
-            <ArrowUp size={16} />
-          </button>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10 py-5 text-center text-xs text-slate-400">
-        © {year} Julien Zigabe. {L.rights}
-      </div>
-    </footer>
-  );
+  const L = lang === "fr" ? { tagline: "Conseil, formation et accompagnement pour transformer le potentiel en résultats.", connect: "Restons en contact", location: "Isingiro District · Nakivale Refugee Settlement", office: "Anzisha Impact Hub · Uganda", rights: "Tous droits réservés.", top: "Retour en haut" } : { tagline: "Consulting, training, and support that turns potential into outcomes.", connect: "Let’s connect", location: "Isingiro District · Nakivale Refugee Settlement", office: "Anzisha Impact Hub · Uganda", rights: "All rights reserved.", top: "Back to top" };
+  return <footer className="bg-slate-950 px-5 pt-16 text-white lg:px-8"><div className="mx-auto grid max-w-7xl gap-10 pb-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]"><div><h2 className="text-3xl font-black tracking-tight">Julien <span className="text-orange-400">Zigabe</span></h2><p className="mt-4 max-w-md text-sm leading-7 text-slate-300">{L.tagline}</p></div><div><h3 className="text-sm font-bold uppercase tracking-[0.16em] text-blue-200">{L.connect}</h3><div className="mt-5 grid gap-3 text-sm text-slate-300"><a className="flex items-center gap-3 hover:text-white" href="mailto:julienzigabe10@gmail.com"><Mail size={16} className="text-orange-400" />julienzigabe10@gmail.com</a><a className="flex items-center gap-3 hover:text-white" href="tel:+256760325737"><Phone size={16} className="text-orange-400" />+256 760 325 737</a><a className="flex items-center gap-3 hover:text-white" href="https://wa.me/256760325737" target="_blank" rel="noreferrer"><MessageCircle size={16} className="text-orange-400" />WhatsApp</a></div></div><div><h3 className="text-sm font-bold uppercase tracking-[0.16em] text-blue-200">{L.office}</h3><p className="mt-5 flex gap-3 text-sm leading-6 text-slate-300"><MapPin size={16} className="mt-1 shrink-0 text-orange-400" />{L.location}</p><div className="mt-6 flex gap-3"><a href="http://www.facebook.com/Anzisha-Impact-HUB-102571215035984" target="_blank" rel="noreferrer" className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-sm font-black text-white hover:bg-blue-600" aria-label="Anzisha Impact Hub on Facebook">f</a><a href="https://www.linkedin.com/in/julienz24/" target="_blank" rel="noreferrer" className="inline-flex size-10 items-center justify-center rounded-lg bg-white/10 text-xs font-black text-white hover:bg-blue-600" aria-label="Julien Zigabe on LinkedIn">in</a></div></div></div><div className="border-t border-white/10 py-5"><div className="mx-auto flex max-w-7xl items-center justify-between text-xs text-slate-400"><span>© {new Date().getFullYear()} Julien Zigabe. {L.rights}</span><button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="inline-flex items-center gap-2 text-slate-300 hover:text-white">{L.top}<ArrowUp size={15} /></button></div></div></footer>;
 }

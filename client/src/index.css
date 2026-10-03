@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 :root {
-  color: #0f172a;
+  color: #191970;
   background: #ffffff;
   font-family: "Geist Variable", Inter, ui-sans-serif, system-ui, sans-serif;
   font-synthesis: none;
@@ -31,7 +31,6 @@ body {
   min-width: 320px;
   margin: 0;
   background: #ffffff;
-  animation: spin 15s linear infinite;
 }
 
 button,
@@ -50,8 +49,8 @@ textarea {
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: #eef3fa;
+  color: #1e3a8a;
   padding: 0.5rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 800;
@@ -60,9 +59,9 @@ textarea {
 }
 
 .section-title {
-  color: #020617;
-  font-size: clamp(2.25rem, 6vw, 3.75rem);
-  font-weight: 900;
+  color: #191970;
+  font-size: clamp(1.65rem, 3.4vw, 2.35rem);
+  font-weight: 800;
   letter-spacing: 0;
   line-height: 1.02;
 }
@@ -82,15 +81,24 @@ textarea {
 
 .premium-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(37, 99, 235, 0.22);
+  border-color: rgba(70, 130, 180, 0.4);
   box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
 }
 
 .transition-within:focus-within {
-  border-color: #2563eb;
+  border-color: #4682b4;
   background: #ffffff;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
+
+/* Shared brand palette */
+.bg-blue-600, .hover\:bg-blue-700:hover { background-color: #1e3a8a !important; }
+.bg-blue-50, .bg-blue-100 { background-color: #eef3fa !important; }
+.text-blue-600, .text-blue-700 { color: #1e3a8a !important; }
+.bg-orange-500, .hover\:bg-orange-600:hover, .hover\:bg-orange-400:hover { background-color: #4682b4 !important; }
+.text-orange-500, .text-orange-600, .text-orange-400 { color: #4a6fa5 !important; }
+.bg-orange-50 { background-color: #f0f5fa !important; }
+.border-orange-200, .border-blue-100 { border-color: #cbd9ec !important; }
 
 .animate-rise {
   animation: rise 680ms ease both;
@@ -102,6 +110,28 @@ textarea {
 
 .reveal {
   animation: rise 700ms ease both;
+}
+
+.partner-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.partner-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 3rem;
+  animation: marquee 34s linear infinite;
+}
+
+.partner-marquee:hover .partner-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @keyframes rise {
@@ -132,5 +162,9 @@ textarea {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .partner-track {
+    animation-play-state: paused;
   }
 }

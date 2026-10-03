@@ -3,13 +3,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import AboutPage from "@/pages/AboutPage";
-import ExpertisePage from "@/pages/ExpertisePage";
 import ExperiencePage from "@/pages/ExperiencePage";
-import ImpactPage from "@/pages/ImpactPage";
 import ContactPage from "@/pages/ContactPage";
 
-const pages = { "/": Home, "/about": AboutPage, "/expertise": ExpertisePage, "/experience": ExperiencePage, "/impact": ImpactPage, "/contact": ContactPage };
-const titles = { "/": "Home", "/about": "About", "/expertise": "Expertise", "/experience": "Experience", "/impact": "Impact & Initiatives", "/contact": "Contact" };
+const pages = { "/": Home, "/about": AboutPage, "/experience": ExperiencePage, "/contact": ContactPage };
+const titles = { "/": "Home", "/about": "About", "/experience": "Experience", "/contact": "Contact" };
 
 export default function App() {
   const [lang, setLang] = useState(() => localStorage.getItem("lang") || "en");
