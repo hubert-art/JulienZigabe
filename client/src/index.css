@@ -108,6 +108,37 @@ textarea {
   animation: fade-in 760ms ease both;
 }
 
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.94);
+  color: #191970;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-loader-mark {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border: 3px solid #d8e4f2;
+  border-top-color: #1e3a8a;
+  border-radius: 999px;
+  color: #1e3a8a;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  animation: loader-spin 750ms linear infinite;
+}
+
 .reveal {
   animation: rise 700ms ease both;
 }
@@ -152,6 +183,10 @@ textarea {
   to {
     opacity: 1;
   }
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -57,7 +57,7 @@ export default function ExperiencePage({ lang }) {
               <article key={`${date}-${organization}`} className="grid gap-6 border-t border-slate-200 py-10 md:grid-cols-[10rem_1fr] lg:grid-cols-[10rem_1fr_20rem] lg:gap-10">
                 <p className="text-sm font-extrabold uppercase tracking-[0.1em] text-[#4682b4]">{date}</p>
                 <div><h2 className="text-xl font-bold text-[#191970]">{title}</h2><p className="mt-2 text-sm font-bold text-[#1e3a8a]">{organization}</p><p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">{description}</p></div>
-                <figure className="md:max-w-md lg:max-w-none"><img src={image} alt={alt} className="aspect-[4/3] w-full object-cover" /><figcaption className="mt-2 text-xs text-slate-500">{index + 1 < 10 ? `0${index + 1}` : index + 1} · {date}</figcaption></figure>
+                <figure className="md:max-w-md lg:max-w-none"><img src={image} alt={alt} loading={index === 0 ? "eager" : "lazy"} decoding="async" className="aspect-[4/3] w-full object-cover" /><figcaption className="mt-2 text-xs text-slate-500">{index + 1 < 10 ? `0${index + 1}` : index + 1} · {date}</figcaption></figure>
               </article>
             ))}
           </div>
