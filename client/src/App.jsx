@@ -7,11 +7,11 @@ import ExperiencePage from "@/pages/ExperiencePage";
 import ContactPage from "@/pages/ContactPage";
 
 const pages = { "/": Home, "/about": AboutPage, "/experience": ExperiencePage, "/contact": ContactPage };
-const titles = { "/": "Home", "/about": "About", "/experience": "Experience", "/contact": "Contact" };
+const titles = { "/": "Home", "/about": "About", "/experience": "My Work", "/contact": "Contact" };
 const pageImages = {
   "/": ["/julien-eyep-panel.jpg"],
-  "/about": ["/Prop.jpeg"],
-  "/experience": ["/1777012665101.jpg"],
+  "/about": ["/Prop-background-navy.png"],
+  "/experience": ["/1.JPG", "/trandf.JPG", "/conf.JPG"],
   "/contact": [],
 };
 

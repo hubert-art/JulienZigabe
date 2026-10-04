@@ -2,39 +2,37 @@ import {
   ArrowRight,
   BadgeCheck,
   BriefcaseBusiness,
-  Handshake,
-  Lightbulb,
+  Mic2,
   Presentation,
   Users,
 } from "lucide-react";
 import { createElement } from "react";
 
 const organizations = [
-  "International Labour Organization",
-  "The Innovation Village",
-  "War Child",
-  "UNICEF",
-  "StartHub Africa Consulting",
-  "KOICA",
-  "GOAL Global",
-  "UBUCHANGE",
+  { name: "International Labour Organization", logo: "/brands/ilo.svg", background: "#0050A4" },
+  { name: "The Innovation Village", logo: "/brands/innovation-village.png" },
+  { name: "War Child", logo: "/brands/war-child.png" },
+  { name: "UNICEF", logo: "/brands/unicef.webp", background: "#1CABE2" },
+  { name: "StartHub Africa Consulting", logo: "/brands/starthub-africa.png" },
+  { name: "KOICA", logo: "/brands/koica.png" },
+  { name: "GOAL Global", logo: "/brands/goal.svg" },
+  { name: "UBUCHANGE", logo: "/brands/ubuchange.png" },
 ];
 
 export default function Home({ lang }) {
   const L = lang === "fr"
     ? {
         eyebrow: "Speaker · Consultant · Investor · Builder",
-        question: "Qui suis-je ?",
         title: "Julien Zigabe.",
         intro:
-          "Je vous souhaite la bienvenue. J’accompagne les entrepreneurs, organisations et leaders émergents à transformer leurs idées en possibilités concrètes, avec clarté, méthode et engagement.",
+          "Accompagne les entrepreneurs, organisations et leaders émergents à transformer leurs idées en possibilités concrètes, avec clarté, méthode et engagement.",
         contact: "Échanger avec Julien",
         action: "L’action en images",
         actionTitle: "Des espaces où les idées deviennent mouvement.",
         actionItems: [
           ["01", "Former avec méthode", "Des sessions pratiques qui donnent aux participants les repères nécessaires pour avancer avec confiance.", "/1.JPG", "Atelier de formation animé par Julien"],
           ["02", "Faire émerger les solutions", "Une facilitation participative pour clarifier les besoins, aligner les équipes et structurer les prochaines étapes.", "/trandf.JPG", "Atelier collaboratif"],
-          ["03", "Porter les conversations utiles", "Des interventions qui relient les parcours individuels aux enjeux de leadership, d’entreprise et d’impact.", "/COG_1710.JPG", "Julien lors d’une conférence"],
+          ["03", "Porter les conversations utiles", "Des interventions qui relient les parcours individuels aux enjeux de leadership, d’entreprise et d’impact.", "/conf.JPG", "Julien prenant la parole lors d’une conférence"],
         ],
         services: "Domaines d’intervention",
         servicesTitle: "Des services conçus pour déclencher une progression concrète.",
@@ -48,17 +46,16 @@ export default function Home({ lang }) {
       }
     : {
         eyebrow: "Speaker · Consultant · Investor · Builder",
-        question: "Who am I?",
         title: "Julien Zigabe.",
         intro:
-          "Welcome. I support entrepreneurs, organizations, and emerging leaders in turning their ideas into concrete opportunities with clarity, practical methods, and commitment.",
+          "Support entrepreneurs, organizations, and emerging leaders in turning their ideas into concrete opportunities with clarity, practical methods, and commitment.",
         contact: "Connect with Julien",
         action: "Action, in focus",
         actionTitle: "Spaces where ideas become momentum.",
         actionItems: [
           ["01", "Training with method", "Practical sessions that give participants the reference points they need to move forward with confidence.", "/1.JPG", "Julien facilitating a training"],
           ["02", "Bringing solutions forward", "Participatory facilitation to clarify needs, align teams, and structure next steps.", "/trandf.JPG", "Collaborative workshop"],
-          ["03", "Leading useful conversations", "Contributions that connect individual journeys with leadership, enterprise, and impact.", "/COG_1710.JPG", "Julien at a conference"],
+          ["03", "Leading useful conversations", "Contributions that connect individual journeys with leadership, enterprise, and impact.", "/conf.JPG", "Julien speaking at a conference"],
         ],
         services: "Areas of service",
         servicesTitle: "Services designed to unlock practical progress.",
@@ -76,13 +73,13 @@ export default function Home({ lang }) {
         ["Développement d’entreprise", "Stratégie, positionnement et accompagnement de croissance pour les entrepreneurs.", BriefcaseBusiness],
         ["Formation & facilitation", "Des apprentissages pratiques qui transforment les idées en décisions et en action.", Presentation],
         ["Leadership & développement personnel", "Accompagner les leaders émergents à reconnaître leur valeur et à saisir des opportunités.", Users],
-        ["Innovation & impact", "Relier les besoins des communautés à des initiatives durables et inclusives.", Lightbulb],
+        ["Prise de parole en public", "Des interventions claires et engageantes pour inspirer, transmettre et ouvrir des conversations utiles.", Mic2],
       ]
     : [
         ["Business development", "Strategy, positioning, and growth support for entrepreneurs.", BriefcaseBusiness],
         ["Training & facilitation", "Practical learning that turns ideas into decisions and action.", Presentation],
         ["Leadership & personal development", "Supporting emerging leaders to recognize their value and pursue opportunities.", Users],
-        ["Innovation & impact", "Connecting community needs with sustainable, inclusive initiatives.", Lightbulb],
+        ["Public speaking", "Clear, engaging talks that inspire, share practical insight, and open useful conversations.", Mic2],
       ];
 
   const reasons = lang === "fr"
@@ -156,7 +153,7 @@ export default function Home({ lang }) {
         </div>
       </section>
 
-      <section className="overflow-hidden border-y border-slate-200 bg-white py-6"><p className="mx-auto mb-5 max-w-7xl px-5 text-center text-xs font-bold uppercase tracking-[0.18em] text-slate-400">{L.trusted}</p><div className="partner-marquee"><div className="partner-track">{[...organizations, ...organizations].map((organization, index) => <span key={`${organization}-${index}`} className="inline-flex items-center gap-3 whitespace-nowrap text-sm font-bold text-slate-700"><Handshake size={17} className="text-orange-500" />{organization}</span>)}</div></div></section>
+      <section className="overflow-hidden border-y border-slate-200 bg-white py-6"><p className="mx-auto mb-5 max-w-7xl px-5 text-center text-xs font-bold uppercase tracking-[0.18em] text-slate-400">{L.trusted}</p><div className="partner-marquee"><div className="partner-track">{[...organizations, ...organizations].map((organization, index) => <span key={`${organization.name}-${index}`} className="inline-flex items-center gap-3 whitespace-nowrap text-sm font-bold text-slate-700"><span className="flex h-11 w-16 shrink-0 items-center justify-center rounded-md border border-slate-200 bg-white p-1.5" style={{ backgroundColor: organization.background }}><img src={organization.logo} alt={`${organization.name} logo`} loading="lazy" decoding="async" className="max-h-full max-w-full object-contain" /></span>{organization.name}</span>)}</div></div></section>
 
       <section className="relative overflow-hidden bg-slate-950 px-5 py-28 text-white lg:px-8"><img src="/COG_1089.JPG" alt="Professional collaboration session" loading="lazy" decoding="async" className="absolute inset-0 size-full object-cover opacity-40" /><div className="absolute inset-0 bg-slate-950/55" /><div className="relative mx-auto max-w-3xl text-center"><p className="section-kicker bg-white/10 text-blue-100">Julien Zigabe</p><h2 className="mt-5 text-3xl font-extrabold leading-tight sm:text-4xl">{L.bannerTitle}</h2><p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-200">{L.bannerText}</p><a href="/contact" className="mt-9 inline-flex items-center gap-2 bg-white px-6 py-3.5 text-sm font-bold text-slate-950 transition hover:bg-[#4682b4] hover:text-white">{L.contact}<ArrowRight size={18} /></a></div></section>
     </>

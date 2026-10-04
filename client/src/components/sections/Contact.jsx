@@ -94,7 +94,7 @@ export default function Contact({ lang }) {
               </a>
               <p className="flex items-center gap-3">
                 <MapPin size={17} className="text-orange-400" />
-                Isingiro District, Nakivale Refugee Settlement, Uganda
+                Kampala, Uganda · Nairobi, Kenya
               </p>
             </div>
             <p className="mt-6 rounded-lg bg-white/10 p-4 text-sm leading-6 text-slate-200">
