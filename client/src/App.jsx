@@ -49,5 +49,17 @@ export default function App() {
     setIsLoading(false);
   };
 
-  return <div className="min-h-screen bg-white text-slate-950"><Navbar lang={lang} setLang={setLang} path={path} navigate={navigate} /><main className="animate-fade-in"><Page lang={lang} /></main><Footer lang={lang} />{isLoading && <div className="page-loader" role="status" aria-live="polite"><div className="page-loader-mark">JZ</div><span>{lang === "fr" ? "Chargement" : "Loading"}</span></div>}</div>;
+  const handleInternalNavigation = (event) => {
+    const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const destination = new URL(link.href, window.location.href);
+    const isInternalPage = destination.origin === window.location.origin && pages[destination.pathname];
+    if (!isInternalPage || link.target === "_blank" || link.hasAttribute("download") || destination.hash) return;
+
+    event.preventDefault();
+    navigate(destination.pathname);
+  };
+
+  return <div className="min-h-screen bg-white text-slate-950" onClick={handleInternalNavigation}><Navbar lang={lang} setLang={setLang} path={path} navigate={navigate} /><main className="animate-fade-in"><Page lang={lang} /></main><Footer lang={lang} />{isLoading && <div className="page-loader" role="status" aria-live="polite"><div className="page-loader-mark">JZ</div><span>{lang === "fr" ? "Chargement" : "Loading"}</span></div>}</div>;
 }

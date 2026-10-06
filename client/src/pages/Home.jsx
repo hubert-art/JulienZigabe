@@ -48,7 +48,7 @@ export default function Home({ lang }) {
         eyebrow: "Speaker · Consultant · Investor · Builder",
         title: "Julien Zigabe.",
         intro:
-          "Support entrepreneurs, organizations, and emerging leaders in turning their ideas into concrete opportunities with clarity, practical methods, and commitment.",
+          "Supporting entrepreneurs, organizations, and emerging leaders in turning their ideas into concrete opportunities with clarity, practical methods, and commitment.",
         contact: "Connect with Julien",
         action: "Action, in focus",
         actionTitle: "Spaces where ideas become momentum.",

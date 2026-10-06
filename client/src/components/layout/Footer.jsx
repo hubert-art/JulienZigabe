@@ -12,6 +12,14 @@ function XIcon({ size = 17 }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" /></svg>;
 }
 
+function TikTokIcon({ size = 18 }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.3 2.4 1.7 3.9 4.4 4.1v3.2a8.6 8.6 0 0 1-4.4-1.2v6.1a6.2 6.2 0 1 1-5.4-6.1v3.3a3 3 0 1 0 2.2 2.8V3h3.2Z" /></svg>;
+}
+
+function FacebookIcon({ size = 18 }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z" /></svg>;
+}
+
 export default function Footer({ lang = "en" }) {
   const L = lang === "fr"
     ? { tagline: "Conseil, développement et prise de parole pour transformer le potentiel en résultats.", connect: "Restons en contact", locations: "Adresses", kampala: "Kampala, Uganda", nairobi: "Nairobi, Kenya", rights: "Tous droits réservés.", top: "Retour en haut" }
@@ -44,8 +52,10 @@ export default function Footer({ lang = "en" }) {
           </div>
           <div className="mt-6 flex gap-3">
             <a href="https://www.linkedin.com/in/julienz24/" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on LinkedIn"><LinkedInIcon /></a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on Instagram"><InstagramIcon /></a>
-            <a href="https://x.com/" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on X"><XIcon /></a>
+            <a href="https://www.instagram.com/julienzigabe1" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on Instagram"><InstagramIcon /></a>
+            <a href="https://x.com/julienzigabe1" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on X"><XIcon /></a>
+            <a href="https://www.tiktok.com/@julienzigab" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on TikTok"><TikTokIcon /></a>
+            <a href="https://www.facebook.com/julien.zigabe.5" target="_blank" rel="noreferrer" className={socialClass} aria-label="Julien Zigabe on Facebook"><FacebookIcon /></a>
           </div>
         </div>
       </div>
